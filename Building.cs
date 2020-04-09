@@ -5,7 +5,7 @@ using System.Text;
 namespace TermCraft {
 	public class Building {
 
-		public List<Item> items { get; private set; }
+		Inventory inventory;
 
 		public string name { get; private set; }
 		public string desc { get; private set; }

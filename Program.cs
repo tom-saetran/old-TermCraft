@@ -22,8 +22,8 @@ namespace TermCraft {
 			DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), 0xF030, 0);
 			DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), 0xF000, 0);
 
-			Console.SetWindowSize(80, 24);
-			Console.SetBufferSize(80, 24);
+			Console.SetWindowSize(160, 48);
+			Console.SetBufferSize(160, 48);
 			Console.Beep();
 		}
 		private static void InitConsole () {
