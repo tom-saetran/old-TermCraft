@@ -27,14 +27,14 @@ namespace TermCraft {
 			Console.Beep();
 		}
 		private static void InitConsole () {
-			
+			// load splash screen
 		}
 		private static void ReadConsole () {
 			// Code
 			WriteConsole ();
 		}
 		private static void WriteConsole () {
-			Actions.b();
+			// 
 		}
 	}
 }
