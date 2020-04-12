@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace TermCraft {
 	public class Item {
-		public string name { get; private set; }
-		public string desc { get; private set; }
+		public string name  { get; private set; }
+		public string desc  { get; private set; }
 		public double value { get; private set; }
 
 		public enum Unit { Coin, Banknote, Gram, Kilogram, Ton, m3, Milliliter, Liter, Barrel, Unit, Pallet, Container }
