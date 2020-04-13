@@ -32,7 +32,11 @@ namespace TermCraft {
 		private static void InitConsole () {
 			// load splash screen
 
-			Draw.TestFlood('x');
+			//Draw.TestFlood('x');
+			for (int i = 0; i < 20; i++) {
+				AI ai = new AI();
+				Console.WriteLine(ai.inventory.bankAccountNumber.ToString());
+			}
 			Console.ReadLine();
 		}
 		private static void ReadConsole () {

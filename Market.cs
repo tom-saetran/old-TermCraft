@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace TermCraft {
-	public class Buffer {
-		public char[,] console = new char[Program.wHeight, Program.wWidth];
+	class Market {
+
+		// runs in own thread, buy/sell and fluctuate prices
+
 	}
 }

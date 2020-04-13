@@ -4,7 +4,8 @@ using System.Text;
 
 namespace TermCraft {
 	public class AI {
-		Inventory inventory;
+		public Inventory inventory { get; private set; }
+		public AI () { inventory = new Inventory(); }
 		// uses same classes as player have access to to operate
 	}
 }
