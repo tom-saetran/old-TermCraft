@@ -5,13 +5,14 @@ using System.Text;
 namespace TermCraft {
 	public class Building {
 
-		Inventory inventory;
+		public Inventory inventory { get; private set; }
 
 		public string name { get; private set; }
 		public string desc { get; private set; }
 		public double value { get; private set; }
+		public short level { get; private set; }
 
-		public enum Type { Bank, Merchant, Home, Quarry, etc }
+		public enum Type { Bank, Store, Home, Quarry, etc }
 		public Type type { get; private set; }
 
 		public Building (Type type, double value, string name, string desc) {
@@ -19,6 +20,16 @@ namespace TermCraft {
 			this.value = value;
 			this.name = name;
 			this.desc = desc;
+			inventory = new Inventory();
+			level = 1;
+		}
+		public Building (Type type, double value, string name, string desc, Inventory inventory, short level) {
+			this.type = type;
+			this.value = value;
+			this.name = name;
+			this.desc = desc;
+			this.inventory = inventory;
+			this.level = level;
 		}
 	}
 }

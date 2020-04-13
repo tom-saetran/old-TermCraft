@@ -34,7 +34,7 @@ namespace TermCraft {
 
 			//Draw.TestFlood('x');
 			for (int i = 0; i < 20; i++) {
-				AI ai = new AI();
+				AI ai = new AI(AI.Type.Investor);
 				Console.WriteLine(ai.inventory.bankAccountNumber.ToString());
 			}
 			Console.ReadLine();
