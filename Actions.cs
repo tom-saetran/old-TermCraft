@@ -124,6 +124,6 @@
 		static void k () {  }
 		static void ReturnToLastScreen () {  }
 		static void Terminate () {  }
-		static void InvalidInput	() {  }
+		static void InvalidInput () {  }
 	}
 }

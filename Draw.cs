@@ -3,7 +3,7 @@
 namespace TermCraft {
 	public static class Draw {
 
-		static char[][] buffer = new char[Program.wWidth][];
+		static readonly char[][] buffer = new char[Program.wWidth][];
 
 		const int cursorPosX = 0;
 		const int cursorPosY = Program.wHeight - 1;

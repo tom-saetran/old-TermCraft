@@ -7,12 +7,12 @@ namespace TermCraft {
 		static string[] middleNames;
 		static string[] lastNames;
 
-		const float middleNameChance = 0.6f;
+		const float middleNameChance = 0.2f;
 
 		public static void Init () {
 			FirstNames();
 			MiddleNames();
-			LastNAmes();
+			LastNames();
 		}
 
 		//sepereate gendered names to avoid male-female or female-male names with middle names.
@@ -37,7 +37,7 @@ namespace TermCraft {
 			"Helmut"
 			};
 		}
-		static void LastNAmes () {
+		static void LastNames () {
 			lastNames = new string[] {
 			"Smith",
 			"Johnson",
@@ -54,7 +54,7 @@ namespace TermCraft {
 		public static string Set () {
 			Random rnd = new Random();
 			bool setMiddleName = false;
-			if (rnd.NextDouble() > middleNameChance) setMiddleName = true;
+			if (rnd.NextDouble() < middleNameChance) setMiddleName = true;
 
 			string name = "";
 			name += firstNames[rnd.Next(0, firstNames.Length)];

@@ -4,8 +4,8 @@ using System.Runtime.InteropServices;
 namespace TermCraft {
 	class Program {
 
-		public const int wHeight = 48;
-		public const int wWidth = 160;
+		public const int wHeight = 36;
+		public const int wWidth = 120;
 
 		[DllImport("user32.dll")]
 		public static extern int DeleteMenu (IntPtr hMenu, int nPosition, int wFlags);
@@ -30,7 +30,8 @@ namespace TermCraft {
 			Console.SetCursorPosition(0, wHeight - 1);
 		}
 		private static void InitConsole () {
-			Name.Init();	
+			Name.Init();
+			Database.Init();
 		
 			//Draw.TestFlood('x');
 			for (int i = 0; i < 20; i++) {

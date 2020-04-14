@@ -3,17 +3,20 @@ using System.Collections.Generic;
 
 namespace TermCraft {
 	public class Inventory {
-		public List<Tuple <Item, int>> items { get; private set; }
+		public List<Tuple <Item, int>> contents { get; private set; }
 		public double bankBalance { get; private set; }
 		public long bankAccountNumber { get; private set; }
 		public string bankAccountNumberFormatted { get; private set; }
 
 		public Inventory () {
 			bankAccountNumber = SetBankAccountNumber(20000000000, 99999999999);
+			//add number to list of used numbers to avoid duplicates
 			bankAccountNumberFormatted = bankAccountNumber.ToString();
 			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(4, ".");
 			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(7, ".");
 
+			bankBalance = 0;
+			contents = new List<Tuple<Item, int>>();
 		}
 
 		long SetBankAccountNumber (long min, long max) {
@@ -28,9 +31,23 @@ namespace TermCraft {
 			return (long)(ulongRand % uRange) + min;
 		}
 		public void AddItem (Item item, int amount) { }
-		public void AddItems (Item[] items, int[] amounts) { }
 		public void RemoveItem (Item item, int amount) { }
-		public void RemoveItems (Item[] items, int[] amounts) { }
-		public void ChangeBalance(double amount) { bankBalance += amount; }
+		public void AddItems (Item[] items, int[] amounts) {
+			for (int i = 0; i < items.Length; i++) {
+				AddItem(items[i], amounts[i]);
+			}
+		}
+		public void RemoveItems (Item[] items, int[] amounts) {
+			for (int i = 0; i < items.Length; i++) {
+				RemoveItem(items[i], amounts[i]);
+			}
+		}
+		public bool ChangeBalance(double amount) { 
+			if (bankBalance + amount >= 0) {
+				bankBalance += amount;
+				return true;
+			}
+			return false;
+		}
 	}
 }

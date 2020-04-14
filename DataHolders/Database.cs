@@ -1,16 +1,19 @@
 ﻿using System.Collections.Generic;
 
 namespace TermCraft {
-	public class Database {
+	public static class Database {
 
-		public List<Item> items { get; private set; }
-		public List<Building> buildings { get; private set; }
+		public static List<Item> items { get; private set; }
+		public static List<Building> buildings { get; private set; }
 
-		public Database () {
+		public static void Init () {
+			items = new List<Item>();
+			buildings = new List<Building>();
+
 			AddItems();
 			AddBuildings();
 		}
-		private void AddItems() {
+		private static void AddItems() {
 			// items.Add(new Item(Item.Type, Item.Unit, 0.00d, "", ""));
 			items.Add(new Item(Item.Type.Currency, Item.Unit.Coin, 0.01d, "1c", "One Fraction is stamped on one side"));
 			items.Add(new Item(Item.Type.Currency, Item.Unit.Coin, 0.02d, "2c", "Two Fractions is stamped on one side"));
@@ -33,7 +36,7 @@ namespace TermCraft {
 			items.Add(new Item(Item.Type.RawResource, Item.Unit.m3, 3.21d, "Water", "Proven to be possible to carry in a sieve"));
 			items.Add(new Item(Item.Type.RawResource, Item.Unit.Kilogram, 4.20d, "Salt", "Makes milk taste very unpleasant"));
 		}
-		private void AddBuildings() {
+		private static void AddBuildings() {
 			// buildings.Add(new Building(Building.Type, 0.00d, "", ""));
 			buildings.Add(new Building(Building.Type.Bank, 5000000.00d, "First Bank", "A place for cash to live together"));
 			buildings.Add(new Building(Building.Type.Quarry, 232000.00d, "Sand Quarry", "A place where sand is bred and born"));
