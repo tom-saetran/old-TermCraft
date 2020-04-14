@@ -6,9 +6,14 @@ namespace TermCraft {
 		public List<Tuple <Item, int>> items { get; private set; }
 		public double bankBalance { get; private set; }
 		public long bankAccountNumber { get; private set; }
+		public string bankAccountNumberFormatted { get; private set; }
 
 		public Inventory () {
 			bankAccountNumber = SetBankAccountNumber(20000000000, 99999999999);
+			bankAccountNumberFormatted = bankAccountNumber.ToString();
+			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(4, ".");
+			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(7, ".");
+
 		}
 
 		long SetBankAccountNumber (long min, long max) {

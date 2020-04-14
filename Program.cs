@@ -30,12 +30,12 @@ namespace TermCraft {
 			Console.SetCursorPosition(0, wHeight - 1);
 		}
 		private static void InitConsole () {
-			// load splash screen
-
+			Name.Init();	
+		
 			//Draw.TestFlood('x');
 			for (int i = 0; i < 20; i++) {
-				AI ai = new AI(AI.Type.Investor, "Gunnar Gunnarson " + i);
-				Console.WriteLine(ai.name + " - " + ai.inventory.bankAccountNumber.ToString());
+				AI ai = new AI(AI.Type.Investor, Name.Set());
+				Console.WriteLine("{0} - {1}", ai.inventory.bankAccountNumberFormatted, ai.name);
 			}
 			Console.ReadLine();
 		}

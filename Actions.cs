@@ -1,9 +1,33 @@
 ﻿namespace TermCraft {
 	public static class Actions {
-		public static void TestInput (string input) {
+		public static void DoAction (string input) {
 			switch (input.ToLower()) {
-				case string s when (s == "e" || s == "exit"):
+				case string s when (s == "a"):
+					//
+					break;
+
+				case string s when (s == "b"):
+					//
+					break;
+
+				case string s when (s == "c" || s == "char" || s == "character"):
+					OpenCharacter();
+					break;
+
+				case string s when (s == "d"):
+					//
+					break;
+
+				case string s when (s == "e" || s == "exit" || s == "back"):
 					ReturnToLastScreen();
+					break;
+
+				case string s when (s == "f"):
+					//
+					break;
+
+				case string s when (s == "g"):
+					//
 					break;
 
 				case string s when (s == "h" || s == "help" || s == "?"):
@@ -14,8 +38,28 @@
 					OpenInventory();
 					break;
 
+				case string s when (s == "j"):
+					//
+					break;
+
+				case string s when (s == "k"):
+					//
+					break;
+
+				case string s when (s == "l"):
+					//
+					break;
+
 				case string s when (s == "m" || s == "mar" || s == "market"):
 					OpenMarket();
+					break;
+
+				case string s when (s == "n"):
+					//
+					break;
+
+				case string s when (s == "o"):
+					//
 					break;
 
 				case string s when (s == "p" || s == "pat" || s == "patreon"):
@@ -26,24 +70,60 @@
 					Terminate();
 					break;
 
+				case string s when (s == "r"):
+					//
+					break;
+
+				case string s when (s == "s" || s == "sel" || s == "select"):
+					Select();
+					break;
+
+				case string s when (s == "t"):
+					//
+					break;
+
+				case string s when (s == "u"):
+					//
+					break;
+
+				case string s when (s == "v"):
+					//
+					break;
+
+				case string s when (s == "w"):
+					//
+					break;
+
+				case string s when (s == "x"):
+					//
+					break;
+
+				case string s when (s == "y"):
+					//
+					break;
+
+				case string s when (s == "z"):
+					//
+					break;
+
 				default:
 					InvalidInput();
 					break;
 			}
 		}
 
-		public static void Help () {  }
-		public static void OpenInventory () {  }
-		public static void OpenPatreon () {  }
-		public static void OpenMarket () {  }
-		public static void f () {  }
-		public static void g () {  }
-		public static void h () {  }
-		public static void i () {  }
-		public static void j () {  }
-		public static void k () {  }
-		public static void ReturnToLastScreen () {  }
-		public static void Terminate () {  }
-		public static void InvalidInput	() {  }
+		static void Help () {  }
+		static void OpenInventory () {  }
+		static void OpenPatreon () {  }
+		static void OpenMarket () {  }
+		static void OpenCharacter () {  }
+		static void g () {  }
+		static void Select () {  }
+		static void i () {  }
+		static void j () {  }
+		static void k () {  }
+		static void ReturnToLastScreen () {  }
+		static void Terminate () {  }
+		static void InvalidInput	() {  }
 	}
 }

@@ -8,6 +8,9 @@
 		public double value { get; private set; }
 		public short level { get; private set; }
 
+		public readonly string[] availableCommands = new string[4] { "produce", "cancel", "upgrade", "etc" };
+
+
 		public enum Type { Bank, Store, Home, Quarry, etc }
 		public Type type { get; private set; }
 
