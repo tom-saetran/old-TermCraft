@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TermCraft {
+﻿namespace TermCraft {
 	class Player {
 		public Inventory inventory { get; private set; }
 		public short level { get; private set; }

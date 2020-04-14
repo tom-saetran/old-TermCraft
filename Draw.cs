@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TermCraft {
 	public static class Draw {
 
-		public static char[][] buffer = new char[Program.wWidth][];
+		static char[][] buffer = new char[Program.wWidth][];
 
-		public const int cursorPosX = 0;
-		public const int cursorPosY = Program.wHeight - 1;
+		const int cursorPosX = 0;
+		const int cursorPosY = Program.wHeight - 1;
 
 		public static void InitBuffer () {
 			for (int x = 0; x < buffer.Length; x++) {

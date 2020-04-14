@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TermCraft {
+﻿namespace TermCraft {
 	public static class Actions {
 		public static void TestInput (string input) {
 			switch (input.ToLower()) {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TermCraft {
+﻿namespace TermCraft {
 	class Market {
 		public Inventory inventory { get; private set; }
 

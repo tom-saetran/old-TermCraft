@@ -1,10 +1,10 @@
 # TermCraft
 
 ## 1 - What
-blah blah
+Some sort of console driven idle business adventure game maybe
 
 ## 2 - How
-etc
+Haven't gotten there yet
 
 ## 3 - Whom
-me
+I made it obviously

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace TermCraft {
 	public class Inventory {
-		public List<Item> items { get; private set; }
+		public List<Tuple <Item, int>> items { get; private set; }
 		public double bankBalance { get; private set; }
 		public long bankAccountNumber { get; private set; }
 
@@ -23,14 +22,10 @@ namespace TermCraft {
 			} while (ulongRand > ulong.MaxValue - ((ulong.MaxValue % uRange) + 1) % uRange);
 			return (long)(ulongRand % uRange) + min;
 		}
-		public void AddItem (int slot, Item item) {
-			// evolve check logic, remove slot as requirement, find space
-			items[slot] = item;
-		}
-		public void RemoveItem (int slot) {
-			// evolve check logic, replace slot with item + amount
-			items[slot] = null;
-		}
+		public void AddItem (Item item, int amount) { }
+		public void AddItems (Item[] items, int[] amounts) { }
+		public void RemoveItem (Item item, int amount) { }
+		public void RemoveItems (Item[] items, int[] amounts) { }
 		public void ChangeBalance(double amount) { bankBalance += amount; }
 	}
 }
