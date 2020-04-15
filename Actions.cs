@@ -113,17 +113,17 @@
 		}
 
 		static void Help () {  }
-		static void OpenInventory () {  }
-		static void OpenPatreon () {  }
-		static void OpenMarket () {  }
-		static void OpenCharacter () {  }
+		static void OpenInventory () { System.Console.WriteLine("inventory!"); }
+		static void OpenPatreon () { System.Console.WriteLine("patreon!"); }
+		static void OpenMarket () { System.Console.WriteLine("market!"); }
+		static void OpenCharacter () { System.Console.WriteLine("character!"); }
 		static void g () {  }
 		static void Select () {  }
 		static void i () {  }
 		static void j () {  }
 		static void k () {  }
 		static void ReturnToLastScreen () {  }
-		static void Terminate () {  }
+		static void Terminate () { System.Console.WriteLine("bye!"); Program.inputCaptured = false; }
 		static void InvalidInput () {  }
 	}
 }

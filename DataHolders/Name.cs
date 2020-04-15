@@ -3,37 +3,66 @@ using System.Collections.Generic;
 
 namespace TermCraft {
 	public static class Name {
-		static string[] firstNames;
-		static string[] middleNames;
+		static string[] femaleFirstNames;
+		static string[] femaleMiddleNames;
+
+		static string[] maleFirstNames;
+		static string[] maleMiddleNames;
+
 		static string[] lastNames;
 
+		public enum Gender { Female, Male }
+		private static readonly Gender gender;
+		
 		const float middleNameChance = 0.2f;
 
 		public static void Init () {
-			FirstNames();
-			MiddleNames();
+			FemaleFirstNames();
+			FemaleMiddleNames();			
+			MaleFirstNames();
+			MaleMiddleNames();
 			LastNames();
 		}
 
-		//sepereate gendered names to avoid male-female or female-male names with middle names.
-		static void FirstNames () {
-			firstNames = new string[] {
-			"Mike",
+		static void FemaleFirstNames () {
+			femaleFirstNames = new string[] {
+			"Sara",
 			"Eva",
-			"Gabriel",
+			"Linda",
 			"Olga",
+			"Lucy",
+			"Beatrix",
+			"Gina",
+			"Ronja",
+			"Sandra"
+			};
+		}
+		static void FemaleMiddleNames () {
+			femaleMiddleNames = new string[] {
+			"Fredrikke",
+			"Leonora",
+			"Belladonna",
+			"Margareth"
+			};
+		}
+		static void MaleFirstNames () {
+			maleFirstNames = new string[] {
+			"Mike",
+			"Fritz",
+			"Marco",
+			"Tommy",
 			"Thomas",
 			"Peter",
 			"Gus",
 			"Glen",
-			"Sandra"
+			"Jim"
 			};
 		}
-		static void MiddleNames () {
-			middleNames = new string[] {
+		static void MaleMiddleNames () {
+			maleMiddleNames = new string[] {
 			"O'Brian",
 			"Henry",
-			"Simone",
+			"Walter",
 			"Helmut"
 			};
 		}
@@ -47,24 +76,34 @@ namespace TermCraft {
 			"Clarkson",
 			"Henderson",
 			"Mauritz",
-			"Wolfe"
+			"Wolfe",
+			"James",
+			"McDonald",
+			"McDuck",
+			"the Brave"
 			};
 		}
-
-		public static string Set () {
+		public static string Set (Gender gender) {
 			Random rnd = new Random();
 			bool setMiddleName = false;
 			if (rnd.NextDouble() < middleNameChance) setMiddleName = true;
-
 			string name = "";
-			name += firstNames[rnd.Next(0, firstNames.Length)];
-			name += " ";
-			if (setMiddleName) {
-				name += middleNames[rnd.Next(0, middleNames.Length)]; ;
+			if (gender == Gender.Female) {
+				name += femaleFirstNames[rnd.Next(0, femaleFirstNames.Length)];
 				name += " ";
+				if (setMiddleName) {
+					name += femaleMiddleNames[rnd.Next(0, femaleMiddleNames.Length)]; ;
+					name += " ";
+				}
+			} else {
+				name += maleFirstNames[rnd.Next(0, maleFirstNames.Length)];
+				name += " ";
+				if (setMiddleName) {
+					name += maleMiddleNames[rnd.Next(0, maleMiddleNames.Length)]; ;
+					name += " ";
+				}
 			}
 			name += lastNames[rnd.Next(0, lastNames.Length)];
-
 			return name;
 		}
 	}

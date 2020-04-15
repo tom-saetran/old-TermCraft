@@ -7,6 +7,8 @@ namespace TermCraft {
 		public const int wHeight = 36;
 		public const int wWidth = 120;
 
+		public static bool inputCaptured = false;
+
 		[DllImport("user32.dll")]
 		public static extern int DeleteMenu (IntPtr hMenu, int nPosition, int wFlags);
 
@@ -19,7 +21,9 @@ namespace TermCraft {
 		private static void Main () {
 			PreInitConsole();
 			InitConsole();
-			ReadConsole();
+			PostInitConsole();
+			DebugConsole();
+			CaptureInput();
 		}
 		private static void PreInitConsole () {
 			DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), 0xF030, 0);
@@ -34,20 +38,28 @@ namespace TermCraft {
 			Player.Init();
 			Name.Init();	
 			Database.Init();
-		
-			//Draw.TestFlood('x');
-			for (int i = 0; i < 20; i++) {
-				AI ai = new AI(AI.Type.Investor, Name.Set());
+			Buffer.Init();
+		}
+		private static void PostInitConsole() {
+			// show splash screen then menu screen
+		}
+		private static void CaptureInput () {
+			inputCaptured = true;
+			while (inputCaptured)
+				Actions.DoAction(Console.ReadLine());
+
+			// When program gets here, it will terminate!
+		}
+		private static void DebugConsole () {
+			for (int i = 0; i < 10; i++) {
+				AI ai = new AI(AI.Type.Investor, Name.Set(Name.Gender.Female));
 				Console.WriteLine("{0} - {1}", ai.inventory.bankAccountNumberFormatted, ai.name);
 			}
-			Console.ReadLine();
-		}
-		private static void ReadConsole () {
-			// Code
-			WriteConsole ();
-		}
-		private static void WriteConsole () {
-			// 
+			Console.WriteLine();
+			for (int i = 0; i < 10; i++) {
+				AI ai = new AI(AI.Type.Investor, Name.Set(Name.Gender.Male));
+				Console.WriteLine("{0} - {1}", ai.inventory.bankAccountNumberFormatted, ai.name);
+			}
 		}
 	}
 }
