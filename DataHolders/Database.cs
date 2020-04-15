@@ -38,8 +38,8 @@ namespace TermCraft {
 		}
 		private static void AddBuildings() {
 			// buildings.Add(new Building(Building.Type, 0.00d, "", ""));
-			buildings.Add(new Building(Building.Type.Bank, 5000000.00d, "First Bank", "A place for cash to live together"));
-			buildings.Add(new Building(Building.Type.Quarry, 232000.00d, "Sand Quarry", "A place where sand is bred and born"));
+			buildings.Add(new Building(Building.Type.Bank, 5000000.00d, "First Bank", "A place for cash to live together", true));
+			buildings.Add(new Building(Building.Type.Quarry, 232000.00d, "Sand Quarry", "A place where sand is bred and born", true));
 		}
 	}
 }

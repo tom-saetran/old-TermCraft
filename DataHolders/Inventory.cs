@@ -10,7 +10,10 @@ namespace TermCraft {
 
 		public Inventory () {
 			bankAccountNumber = SetBankAccountNumber(20000000000, 99999999999);
-			//add number to list of used numbers to avoid duplicates
+
+			if (Register.BankAccountNumberInUse(bankAccountNumber))
+				bankAccountNumber = SetBankAccountNumber(20000000000, 99999999999);
+
 			bankAccountNumberFormatted = bankAccountNumber.ToString();
 			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(4, ".");
 			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(7, ".");

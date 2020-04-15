@@ -14,12 +14,13 @@
 		public enum Type { Bank, Store, Home, Quarry, etc }
 		public Type type { get; private set; }
 
-		public Building (Type type, double value, string name, string desc) {
+		public Building (Type type, double value, string name, string desc, bool noInv = false) {
 			this.type = type;
 			this.value = value;
 			this.name = name;
 			this.desc = desc;
-			inventory = new Inventory();
+			if (!noInv)
+				inventory = new Inventory();
 			level = 1;
 		}
 		public Building (Type type, double value, string name, string desc, Inventory inventory, short level) {

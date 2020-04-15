@@ -30,7 +30,9 @@ namespace TermCraft {
 			Console.SetCursorPosition(0, wHeight - 1);
 		}
 		private static void InitConsole () {
-			Name.Init();
+			Register.Init();
+			Player.Init();
+			Name.Init();	
 			Database.Init();
 		
 			//Draw.TestFlood('x');

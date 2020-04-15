@@ -1,15 +1,15 @@
 ﻿namespace TermCraft {
-	class Player {
-		public Inventory inventory { get; private set; }
-		public short level { get; private set; }
+	public static class Player {
+		public static Inventory inventory { get; private set; }
+		public static short level { get; private set; }
 
-		public Player () {
+		public static void Init () {
 			inventory = new Inventory();
 			level = 1;
 		}
-		public Player (Inventory inventory, short level) {
-			this.inventory = inventory;
-			this.level = level;
+		public static void Init (Inventory _inventory, short _level) {
+			inventory = _inventory;
+			level = _level;
 		}
 	}
 }
