@@ -7,6 +7,7 @@ namespace TermCraft {
 		public double bankBalance { get; private set; }
 		public long bankAccountNumber { get; private set; }
 		public string bankAccountNumberFormatted { get; private set; }
+		public double grantedCredit { get; private set; }
 
 		public Inventory () {
 			bankAccountNumber = SetBankAccountNumber(20000000000, 99999999999);
@@ -19,6 +20,7 @@ namespace TermCraft {
 			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(7, ".");
 
 			bankBalance = 0;
+			grantedCredit = 0;
 			contents = new List<Tuple<Item, int>>();
 		}
 
@@ -33,6 +35,7 @@ namespace TermCraft {
 			} while (ulongRand > ulong.MaxValue - ((ulong.MaxValue % uRange) + 1) % uRange);
 			return (long)(ulongRand % uRange) + min;
 		}
+		public void SetCreditLimit (double limit) { grantedCredit = limit; }
 		public void AddItem (Item item, int amount) { }
 		public void RemoveItem (Item item, int amount) { }
 		public void AddItems (Item[] items, int[] amounts) {
@@ -46,7 +49,7 @@ namespace TermCraft {
 			}
 		}
 		public bool ChangeBalance(double amount) { 
-			if (bankBalance + amount >= 0) {
+			if (bankBalance + amount >= grantedCredit) {
 				bankBalance += amount;
 				return true;
 			}
