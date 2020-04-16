@@ -13,7 +13,8 @@ namespace TermCraft {
 
 		public enum Gender { Female, Male }
 		
-		const float middleNameChance = 0.2f;
+		const float middleNameChance = 0.33f;
+		const float doubleLastNameChance = 0.20f;
 
 		public static void Init () {
 			FemaleFirstNames();
@@ -152,7 +153,9 @@ namespace TermCraft {
 		public static string Set (Gender gender) {
 			Random rnd = new Random();
 			bool setMiddleName = false;
+			bool setDoubleLastName = false;
 			if (rnd.NextDouble() < middleNameChance) setMiddleName = true;
+			if (rnd.NextDouble() < doubleLastNameChance) setDoubleLastName = true;
 			string name = "";
 			if (gender == Gender.Female) {
 				name += femaleFirstNames[rnd.Next(0, femaleFirstNames.Length)];
@@ -168,6 +171,10 @@ namespace TermCraft {
 					name += maleMiddleNames[rnd.Next(0, maleMiddleNames.Length)]; ;
 					name += " ";
 				}
+			}
+			if (setDoubleLastName) {
+				name += lastNames[rnd.Next(0, lastNames.Length)];
+				name += " ";
 			}
 			name += lastNames[rnd.Next(0, lastNames.Length)];
 			return name;
