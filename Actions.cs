@@ -123,7 +123,7 @@
 		static void j () {  }
 		static void k () {  }
 		static void ReturnToLastScreen () {  }
-		static void Terminate () { System.Console.WriteLine("bye!"); Program.inputCaptured = false; }
+		static void Terminate () { System.Console.WriteLine("bye!"); Program.SetCapture(false); }
 		static void InvalidInput () {  }
 	}
 }

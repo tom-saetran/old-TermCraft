@@ -7,7 +7,7 @@ namespace TermCraft {
 		public const int wHorizontal = 120;
 		public const int wVertical = 36;
 
-		public static bool inputCaptured = false;
+		private static bool inputCaptured = false;
 
 		[DllImport("user32.dll")]
 		public static extern int DeleteMenu (IntPtr hMenu, int nPosition, int wFlags);
@@ -22,7 +22,6 @@ namespace TermCraft {
 			PreInitConsole();
 			InitConsole();
 			PostInitConsole();
-			//DebugConsole();
 			CaptureInput();
 		}
 		private static void PreInitConsole () {
@@ -31,7 +30,7 @@ namespace TermCraft {
 
 			Console.SetWindowSize(wHorizontal, wVertical);
 			Console.SetBufferSize(wHorizontal, wVertical);
-			Console.SetCursorPosition(0, wVertical - 1); // not default resting position
+			Console.SetCursorPosition(1, wVertical - 2); // not default resting position
 		}
 		private static void InitConsole () {
 			Register.Init();
@@ -45,22 +44,13 @@ namespace TermCraft {
 			Buffer.Draw();
 		}
 		private static void CaptureInput () {
-			inputCaptured = true;
+			SetCapture(true);
 			while (inputCaptured)
 				Actions.DoAction(Console.ReadLine());
 
 			// When program gets here, it will terminate!
 		}
-		private static void DebugConsole () {
-			for (int i = 0; i < 10; i++) {
-				AI ai = new AI(AI.Type.Investor, Name.Set(Name.Gender.Female));
-				Console.WriteLine("{0} - {1}", ai.inventory.bankAccountNumberFormatted, ai.name);
-			}
-			Console.WriteLine();
-			for (int i = 0; i < 10; i++) {
-				AI ai = new AI(AI.Type.Investor, Name.Set(Name.Gender.Male));
-				Console.WriteLine("{0} - {1}", ai.inventory.bankAccountNumberFormatted, ai.name);
-			}
-		}
+
+		public static void SetCapture(bool state) { inputCaptured = state; }
 	}
 }
