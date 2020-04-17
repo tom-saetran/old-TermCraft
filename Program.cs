@@ -4,8 +4,8 @@ using System.Runtime.InteropServices;
 namespace TermCraft {
 	class Program {
 
-		public const int wHeight = 36;
-		public const int wWidth = 120;
+		public const int wHorizontal = 120;
+		public const int wVertical = 36;
 
 		public static bool inputCaptured = false;
 
@@ -22,16 +22,16 @@ namespace TermCraft {
 			PreInitConsole();
 			InitConsole();
 			PostInitConsole();
-			DebugConsole();
+			//DebugConsole();
 			CaptureInput();
 		}
 		private static void PreInitConsole () {
 			DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), 0xF030, 0);
 			DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), 0xF000, 0);
 
-			Console.SetWindowSize(wWidth, wHeight);
-			Console.SetBufferSize(wWidth, wHeight);
-			Console.SetCursorPosition(0, wHeight - 1);
+			Console.SetWindowSize(wHorizontal, wVertical);
+			Console.SetBufferSize(wHorizontal, wVertical);
+			Console.SetCursorPosition(0, wVertical - 1); // not default resting position
 		}
 		private static void InitConsole () {
 			Register.Init();
@@ -41,7 +41,8 @@ namespace TermCraft {
 			Buffer.Init();
 		}
 		private static void PostInitConsole() {
-			// show splash screen then menu screen
+			Buffer.BuildSplash();
+			Buffer.Draw();
 		}
 		private static void CaptureInput () {
 			inputCaptured = true;
