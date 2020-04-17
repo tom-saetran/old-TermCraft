@@ -11,18 +11,22 @@ namespace TermCraft {
 	public static class Buffer {
 
 		/// <summary>
-		/// Drawable console buffer
+		/// Drawable <see cref="char[][]"/> buffer
 		/// </summary>
 		public static readonly char[][] buffer = new char[Program.wHorizontal][];
+
+		/// <summary>
+		/// Current character set
+		/// </summary>
 		static string borderCharSet;
 
 		/// <summary>
-		/// Available character sets
+		/// Character sets
 		/// </summary>
 		public enum CharSet { Default, Thin, Full }
 
 		/// <summary>
-		/// Initialize the buffer
+		/// Initialize <see cref="buffer"/>
 		/// </summary>
 		public static void Init () {
 			for (int x = 0; x < buffer.Length; x++) {
@@ -38,9 +42,9 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Sets the Character Set used for the borders
+		/// Sets the <see cref="CharSet"/> used for the borders
 		/// </summary>
-		/// <param name="charSet">Character sets available</param>
+		/// <param name="charSet">Selected <see cref="CharSet"/></param>
 		public static void SetBorderCharSet (CharSet charSet) {
 			switch (charSet) {
 				case (CharSet.Default):
@@ -59,7 +63,7 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Draws the buffer to the Console
+		/// Draws <see cref="buffer"/> to <see cref="Console"/>
 		/// </summary>
 		public static void Draw () {
 			string _buffer = "";
@@ -78,7 +82,7 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Clears the buffer by replacing all characters with space
+		/// Replaces <see cref="buffer"/> content with <see cref="' '"/>.
 		/// Calls <see cref="BuildDefaultUI"/> after completion
 		/// </summary>
 		public static void Clear () {
@@ -91,7 +95,7 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Builds the splash screen of the game to the buffer
+		/// Adds splash screen data to <see cref="buffer"/>.
 		/// Calls <see cref="Draw"/> after completion
 		/// </summary>
 		public static void BuildSplash () {
@@ -102,16 +106,16 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Builds the default UI with the set character set
+		/// Builds the default UI with the set <see cref="CharSet"/>.
 		/// Called after <see cref="Clear"/>
 		/// </summary>
 		public static void BuildDefaultUI () {
 			// Box in the terminal and divide into output (top) and input (bottom)	
-			AddHorizontalLine(borderCharSet[0], 0);
-			AddHorizontalLine(borderCharSet[0], 4);
-			AddHorizontalLine(borderCharSet[0], Program.wVertical - 1);
-			AddHorizontalLine(borderCharSet[0], Program.wVertical - 3);
-			AddHorizontalLine(borderCharSet[0], Program.wVertical - 7);
+			WriteHorizontalLine(borderCharSet[0], 0);
+			WriteHorizontalLine(borderCharSet[0], 4);
+			WriteHorizontalLine(borderCharSet[0], Program.wVertical - 1);
+			WriteHorizontalLine(borderCharSet[0], Program.wVertical - 3);
+			WriteHorizontalLine(borderCharSet[0], Program.wVertical - 7);
 			AddVerticalLine(borderCharSet[1], 0);
 			AddVerticalLine(borderCharSet[1], Program.wHorizontal - 1);
 			AddVerticalLine(borderCharSet[1], 82, 1, 3);
@@ -135,11 +139,11 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds a full length horizontal line
+		/// Writes a full length horizontal line to <see cref="buffer"/>
 		/// </summary>
-		/// <param name="c">Character to use</param>
+		/// <param name="c"><see cref="char"/> to use</param>
 		/// <param name="y">Vertical placement</param>
-		public static void AddHorizontalLine (char c, int y) {
+		public static void WriteHorizontalLine (char c, int y) {
 			if (y >= Program.wVertical)
 				return;
 
@@ -149,9 +153,9 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds a specified length horizontal line
+		/// Writes a specified <paramref name="length"/> horizontal line to <see cref="buffer"/> from <paramref name="startX"/>
 		/// </summary>
-		/// <param name="c">Character to use</param>
+		/// <param name="c"><see cref="char"/> to use</param>
 		/// <param name="y">Vertical placement</param>
 		/// <param name="startX">Horizontal start of the line</param>
 		/// <param name="length">Length of the line</param>
@@ -171,9 +175,9 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds a full length vertical line
+		/// Adds a full length vertical line to <see cref="buffer"/>
 		/// </summary>
-		/// <param name="c">Character to use</param>
+		/// <param name="c"><see cref="char"/> to use</param>
 		/// <param name="x">Horizontal placement</param>
 		public static void AddVerticalLine (char c, int x) {
 			if (x >= Program.wHorizontal)
@@ -185,9 +189,9 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds a specified length vertical line 
+		/// Adds a specified <paramref name="length"/> vertical line to <see cref="buffer"/> from <paramref name="startY"/>
 		/// </summary>
-		/// <param name="c">Character to use</param>
+		/// <param name="c"><see cref="char"/> to use</param>
 		/// <param name="x">Horizontal placement</param>
 		/// <param name="startY">Vertical start of the line</param>
 		/// <param name="length">Length of the line</param>
@@ -207,7 +211,7 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds specified character to the buffer
+		/// Adds the specified <see cref="char"/> to <see cref="buffer"/>
 		/// </summary>
 		/// <param name="c">Character to add</param>
 		/// <param name="x">Horizontal placement</param>
@@ -222,7 +226,7 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds horizontal text to the buffer
+		/// Adds <paramref name="input"/> horizontally to <see cref="buffer"/> from <paramref name="startX"/>
 		/// </summary>
 		/// <param name="input">Text to add</param>
 		/// <param name="y">Vertical placement</param>
@@ -243,7 +247,7 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds vertical text to the buffer
+		/// Adds <paramref name="input"/> vertically to <see cref="buffer"/> from <paramref name="startY"/>
 		/// </summary>
 		/// <param name="input">Text to add</param>
 		/// <param name="x">Horizontal placement</param>
