@@ -6,7 +6,7 @@ using System.Text;
 namespace TermCraft {
 
 	/// <summary>
-	/// Console buffer
+	/// Handles the output buffer and output to console
 	/// </summary>
 	public static class Buffer {
 

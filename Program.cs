@@ -38,6 +38,7 @@ namespace TermCraft {
 			Name.Init();	
 			Database.Init();
 			Buffer.Init();
+			Pages.Init();
 		}
 		private static void PostInitConsole() {
 			Buffer.BuildSplash();
