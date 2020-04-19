@@ -95,17 +95,6 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds splash screen data to <see cref="buffer"/>.
-		/// Calls <see cref="Draw"/> after completion
-		/// </summary>
-		public static void BuildSplash () {
-			// Load Splash screen and Draw it
-
-			// TEMP
-			BuildDefaultUI();
-		}
-
-		/// <summary>
 		/// Builds the default UI with the set <see cref="CharSet"/>.
 		/// Called after <see cref="Clear"/>
 		/// </summary>
@@ -116,24 +105,24 @@ namespace TermCraft {
 			WriteHorizontalLine(borderCharSet[0], Program.wVertical - 1);
 			WriteHorizontalLine(borderCharSet[0], Program.wVertical - 3);
 			WriteHorizontalLine(borderCharSet[0], Program.wVertical - 7);
-			AddVerticalLine(borderCharSet[1], 0);
-			AddVerticalLine(borderCharSet[1], Program.wHorizontal - 1);
-			AddVerticalLine(borderCharSet[1], 82, 1, 3);
-			AddVerticalLine(borderCharSet[1], 36, 5, 24);
-			AddChar(borderCharSet[2], 0, 0);
-			AddChar(borderCharSet[3], Program.wHorizontal - 1, 0);
-			AddChar(borderCharSet[4], 0, Program.wVertical - 1);
-			AddChar(borderCharSet[5], Program.wHorizontal - 1, Program.wVertical - 1);
-			AddChar(borderCharSet[6], 0, 4);
-			AddChar(borderCharSet[6], 0, Program.wVertical - 3);
-			AddChar(borderCharSet[6], 0, Program.wVertical - 7);
-			AddChar(borderCharSet[7], Program.wHorizontal - 1, 4);
-			AddChar(borderCharSet[7], Program.wHorizontal - 1, Program.wVertical - 3);
-			AddChar(borderCharSet[7], Program.wHorizontal - 1, Program.wVertical - 7);
-			AddChar(borderCharSet[8], 82, 0);
-			AddChar(borderCharSet[8], 36, 4);
-			AddChar(borderCharSet[9], 82, 4);
-			AddChar(borderCharSet[9], 36, 29);
+			WriteVerticalLine(borderCharSet[1], 0);
+			WriteVerticalLine(borderCharSet[1], Program.wHorizontal - 1);
+			WriteVerticalLine(borderCharSet[1], 82, 1, 3);
+			WriteVerticalLine(borderCharSet[1], 36, 5, 24);
+			WriteChar(borderCharSet[2], 0, 0);
+			WriteChar(borderCharSet[3], Program.wHorizontal - 1, 0);
+			WriteChar(borderCharSet[4], 0, Program.wVertical - 1);
+			WriteChar(borderCharSet[5], Program.wHorizontal - 1, Program.wVertical - 1);
+			WriteChar(borderCharSet[6], 0, 4);
+			WriteChar(borderCharSet[6], 0, Program.wVertical - 3);
+			WriteChar(borderCharSet[6], 0, Program.wVertical - 7);
+			WriteChar(borderCharSet[7], Program.wHorizontal - 1, 4);
+			WriteChar(borderCharSet[7], Program.wHorizontal - 1, Program.wVertical - 3);
+			WriteChar(borderCharSet[7], Program.wHorizontal - 1, Program.wVertical - 7);
+			WriteChar(borderCharSet[8], 82, 0);
+			WriteChar(borderCharSet[8], 36, 4);
+			WriteChar(borderCharSet[9], 82, 4);
+			WriteChar(borderCharSet[9], 36, 29);
 			//AddHorizontalText("--- ....SCROLLING TEXT GO HERE.... --- ....SCROLLING TEXT GO HERE.... ---", Program.wVertical - 2, 1);
 			//AddVerticalText("Vertical Text :D", 1, 1);
 		}
@@ -159,7 +148,7 @@ namespace TermCraft {
 		/// <param name="y">Vertical placement</param>
 		/// <param name="startX">Horizontal start of the line</param>
 		/// <param name="length">Length of the line</param>
-		public static void AddHorizontalLine (char c, int y, int startX, uint length) {
+		public static void WriteHorizontalLine (char c, int y, int startX, uint length) {
 			if (y >= Program.wVertical)
 				return;
 
@@ -175,11 +164,11 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds a full length vertical line to <see cref="buffer"/>
+		/// Writes a full length vertical line to <see cref="buffer"/>
 		/// </summary>
 		/// <param name="c"><see cref="char"/> to use</param>
 		/// <param name="x">Horizontal placement</param>
-		public static void AddVerticalLine (char c, int x) {
+		public static void WriteVerticalLine (char c, int x) {
 			if (x >= Program.wHorizontal)
 				return;
 
@@ -189,13 +178,13 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds a specified <paramref name="length"/> vertical line to <see cref="buffer"/> from <paramref name="startY"/>
+		/// Writes a specified <paramref name="length"/> vertical line to <see cref="buffer"/> from <paramref name="startY"/>
 		/// </summary>
 		/// <param name="c"><see cref="char"/> to use</param>
 		/// <param name="x">Horizontal placement</param>
 		/// <param name="startY">Vertical start of the line</param>
 		/// <param name="length">Length of the line</param>
-		public static void AddVerticalLine (char c, int x, int startY, uint length) {
+		public static void WriteVerticalLine (char c, int x, int startY, uint length) {
 			if (x >= Program.wHorizontal)
 				return;
 
@@ -211,12 +200,12 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds the specified <see cref="char"/> to <see cref="buffer"/>
+		/// Writes the specified <see cref="char"/> to <see cref="buffer"/>
 		/// </summary>
 		/// <param name="c">Character to add</param>
 		/// <param name="x">Horizontal placement</param>
 		/// <param name="y">Vertical placement</param>
-		public static void AddChar (char c, int x, int y) {
+		public static void WriteChar (char c, int x, int y) {
 			if (y >= Program.wVertical)
 				return;
 			if (x >= Program.wHorizontal)
@@ -226,12 +215,12 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds <paramref name="input"/> horizontally to <see cref="buffer"/> from <paramref name="startX"/>
+		/// Writes <paramref name="input"/> horizontally to <see cref="buffer"/> from <paramref name="startX"/>
 		/// </summary>
 		/// <param name="input">Text to add</param>
 		/// <param name="y">Vertical placement</param>
 		/// <param name="startX">Horizontal placement of the first input character</param>
-		public static void AddHorizontalText (string input, int y, int startX) {
+		public static void WriteHorizontalText (string input, int y, int startX) {
 			if (y >= Program.wVertical)
 				return;
 
@@ -247,12 +236,12 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Adds <paramref name="input"/> vertically to <see cref="buffer"/> from <paramref name="startY"/>
+		/// Writes <paramref name="input"/> vertically to <see cref="buffer"/> from <paramref name="startY"/>
 		/// </summary>
 		/// <param name="input">Text to add</param>
 		/// <param name="x">Horizontal placement</param>
 		/// <param name="startY">Vertical placement of the first input character</param>
-		public static void AddVerticalText (string input, int x, int startY) {
+		public static void WriteVerticalText (string input, int x, int startY) {
 			if (x >= Program.wHorizontal)
 				return;
 

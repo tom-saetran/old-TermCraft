@@ -55,7 +55,7 @@ namespace TermCraft {
 		/// <summary>
 		/// Builds <see cref="Pages.Help"/> to <see cref="Buffer.buffer"/> and calls <see cref="Buffer.Draw"/>
 		/// </summary>
-		static void OpenHelp () {
+		private static void OpenHelp () {
 			Pages.Help();
 			Buffer.Draw();
 		}
@@ -63,7 +63,7 @@ namespace TermCraft {
 		/// <summary>
 		/// Builds the <see cref="Inventory"/> of the selected <see cref="Player"/>/<see cref="AI"/>/<see cref="Building"/> to <see cref="Buffer.buffer"/> then calls <see cref="Buffer.Draw"/>
 		/// </summary>
-		static void OpenInventory () {
+		private static void OpenInventory () {
 			Pages.Help();
 			Buffer.Draw();
 		}
@@ -71,7 +71,7 @@ namespace TermCraft {
 		/// <summary>
 		/// Builds <see cref="Pages.Patreon"/> to <see cref="Buffer.buffer"/> and calls <see cref="Buffer.Draw"/>
 		/// </summary>
-		static void OpenPatreon () {
+		private static void OpenPatreon () {
 			Pages.Patreon();
 			Buffer.Draw();
 		}
@@ -79,7 +79,7 @@ namespace TermCraft {
 		/// <summary>
 		/// Builds <see cref="Pages.Market"/> to <see cref="Buffer.buffer"/> and calls <see cref="Buffer.Draw"/>
 		/// </summary>
-		static void OpenMarket () {
+		private static void OpenMarket () {
 			Pages.Market();
 			Buffer.Draw();
 		}
@@ -87,7 +87,7 @@ namespace TermCraft {
 		/// <summary>
 		/// Builds <see cref="Pages.Character"/> to <see cref="Buffer.buffer"/> and calls <see cref="Buffer.Draw"/>
 		/// </summary>
-		static void OpenCharacter () {
+		private static void OpenCharacter () {
 			Pages.Character();
 			Buffer.Draw();
 		}
@@ -95,14 +95,14 @@ namespace TermCraft {
 		/// <summary>
 		/// NYI: Require multi word input read
 		/// </summary>
-		static void Select () {
+		private static void Select () {
 			throw new NotImplementedException();
 		}
 
 		/// <summary>
 		/// Sets the <see cref="Buffer.buffer"/> to <see cref="Pages.lastPage"/> then calls <see cref="Buffer.Draw"/>
 		/// </summary>
-		static void ReturnToLastScreen () {
+		private static void ReturnToLastScreen () {
 			Pages.RecallLastPage();
 			Buffer.Draw();
 		}
@@ -111,14 +111,14 @@ namespace TermCraft {
 		/// Signals to <see cref="Program"/> that we no longer wish to run <see cref="Program.CaptureInput"/>.
 		/// This will terminate the application!
 		/// </summary>
-		static void Terminate () {
+		private static void Terminate () {
 			Program.SetCapture(false);
 		}
 
 		/// <summary>
 		/// No valid input detected. Calls <see cref="Buffer.Draw"/>
 		/// </summary>
-		static void InvalidInput () {
+		private static void InvalidInput () {
 			// TODO: add error message print to user
 			Buffer.Draw();
 		}
