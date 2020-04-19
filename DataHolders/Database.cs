@@ -1,11 +1,24 @@
 ﻿using System.Collections.Generic;
 
 namespace TermCraft {
+	/// <summary>
+	/// Database class
+	/// </summary>
 	public static class Database {
 
+		/// <summary>
+		/// A list of all spawnable entities of type <see cref="Item"/>
+		/// </summary>
 		public static List<Item> items { get; private set; }
+
+		/// <summary>
+		/// A list of all spawnable entities of type <see cref="Building"/>
+		/// </summary>
 		public static List<Building> buildings { get; private set; }
 
+		/// <summary>
+		/// Initializes the <see cref="Database"/> and populates it
+		/// </summary>
 		public static void Init () {
 			items = new List<Item>();
 			buildings = new List<Building>();
@@ -13,6 +26,10 @@ namespace TermCraft {
 			AddItems();
 			AddBuildings();
 		}
+
+		/// <summary>
+		/// Adds all premade items of type <see cref="Item"/> to <see cref="items"/>
+		/// </summary>
 		private static void AddItems() {
 			// items.Add(new Item(Item.Type, Item.Unit, 0.00d, "", ""));
 			items.Add(new Item(Item.Type.Currency, Item.Unit.Coin, 0.01d, "1c", "One Fraction is stamped on one side"));
@@ -36,6 +53,10 @@ namespace TermCraft {
 			items.Add(new Item(Item.Type.RawResource, Item.Unit.m3, 3.21d, "Water", "Proven to be possible to carry in a sieve"));
 			items.Add(new Item(Item.Type.RawResource, Item.Unit.Kilogram, 4.20d, "Salt", "Makes milk taste very unpleasant"));
 		}
+
+		/// <summary>
+		/// Adds all premade buildings of type <see cref="Building"/> to <see cref="buildings"/>
+		/// </summary>
 		private static void AddBuildings() {
 			// buildings.Add(new Building(Building.Type, 0.00d, "", ""));
 			buildings.Add(new Building(Building.Type.Bank, 5000000.00d, "First Bank", "A place for cash to live together", true));
