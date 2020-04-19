@@ -1,0 +1,589 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TermCraft</name>
+    </assembly>
+    <members>
+        <member name="T:TermCraft.Actions">
+            <summary>
+            Handles user input and selects actions to do
+            </summary>
+        </member>
+        <member name="M:TermCraft.Actions.DoAction(System.String)">
+            <summary>
+            Reads from <see cref="M:System.Console.ReadLine"/> and compares it to known commands, then executes that commands function.
+            Not case sensitive
+            </summary>
+            <param name="input">Set by <see cref="M:System.Console.ReadLine"/></param>
+        </member>
+        <member name="M:TermCraft.Actions.OpenHelp">
+            <summary>
+            Builds <see cref="M:TermCraft.Pages.Help"/> to <see cref="F:TermCraft.Buffer.buffer"/> and calls <see cref="M:TermCraft.Buffer.Draw"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Actions.OpenInventory">
+            <summary>
+            Builds the <see cref="T:TermCraft.Inventory"/> of the selected <see cref="T:TermCraft.Player"/>/<see cref="T:TermCraft.AI"/>/<see cref="T:TermCraft.Building"/> to <see cref="F:TermCraft.Buffer.buffer"/> then calls <see cref="M:TermCraft.Buffer.Draw"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Actions.OpenPatreon">
+            <summary>
+            Builds <see cref="M:TermCraft.Pages.Patreon"/> to <see cref="F:TermCraft.Buffer.buffer"/> and calls <see cref="M:TermCraft.Buffer.Draw"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Actions.OpenMarket">
+            <summary>
+            Builds <see cref="M:TermCraft.Pages.Market"/> to <see cref="F:TermCraft.Buffer.buffer"/> and calls <see cref="M:TermCraft.Buffer.Draw"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Actions.OpenCharacter">
+            <summary>
+            Builds <see cref="M:TermCraft.Pages.Character"/> to <see cref="F:TermCraft.Buffer.buffer"/> and calls <see cref="M:TermCraft.Buffer.Draw"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Actions.Select">
+            <summary>
+            NYI: Require multi word input read
+            </summary>
+        </member>
+        <member name="M:TermCraft.Actions.ReturnToLastScreen">
+            <summary>
+            Sets the <see cref="F:TermCraft.Buffer.buffer"/> to <see cref="P:TermCraft.Pages.lastPage"/> then calls <see cref="M:TermCraft.Buffer.Draw"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Actions.Terminate">
+            <summary>
+            Signals to <see cref="T:TermCraft.Program"/> that we no longer wish to run <see cref="M:TermCraft.Program.CaptureInput"/>.
+            This will terminate the application!
+            </summary>
+        </member>
+        <member name="M:TermCraft.Actions.InvalidInput">
+            <summary>
+            No valid input detected. Calls <see cref="M:TermCraft.Buffer.Draw"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.Buffer">
+            <summary>
+            Handles the output buffer and output to console
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.buffer">
+            <summary>
+            Drawable <see cref="!:char[][]"/> buffer
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.borderCharSet">
+            <summary>
+            Current character set
+            </summary>
+        </member>
+        <member name="T:TermCraft.Buffer.CharSet">
+            <summary>
+            Character sets
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.Init">
+            <summary>
+            Initialize <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.SetBorderCharSet(TermCraft.Buffer.CharSet)">
+            <summary>
+            Sets the <see cref="T:TermCraft.Buffer.CharSet"/> used for the borders
+            </summary>
+            <param name="charSet">Selected <see cref="T:TermCraft.Buffer.CharSet"/></param>
+        </member>
+        <member name="M:TermCraft.Buffer.Draw">
+            <summary>
+            Draws <see cref="F:TermCraft.Buffer.buffer"/> to <see cref="T:System.Console"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.Clear">
+            <summary>
+            Replaces <see cref="F:TermCraft.Buffer.buffer"/> content with <see cref="!:' '"/>.
+            Calls <see cref="M:TermCraft.Buffer.BuildDefaultUI"/> after completion
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.BuildDefaultUI">
+            <summary>
+            Builds the default UI with the set <see cref="T:TermCraft.Buffer.CharSet"/>.
+            Called after <see cref="M:TermCraft.Buffer.Clear"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteHorizontalLine(System.Char,System.Int32)">
+            <summary>
+            Writes a full length horizontal line to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+            <param name="c"><see cref="T:System.Char"/> to use</param>
+            <param name="y">Vertical placement</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteHorizontalLine(System.Char,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            Writes a specified <paramref name="length"/> horizontal line to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startX"/>
+            </summary>
+            <param name="c"><see cref="T:System.Char"/> to use</param>
+            <param name="y">Vertical placement</param>
+            <param name="startX">Horizontal start of the line</param>
+            <param name="length">Length of the line</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteVerticalLine(System.Char,System.Int32)">
+            <summary>
+            Writes a full length vertical line to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+            <param name="c"><see cref="T:System.Char"/> to use</param>
+            <param name="x">Horizontal placement</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteVerticalLine(System.Char,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            Writes a specified <paramref name="length"/> vertical line to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startY"/>
+            </summary>
+            <param name="c"><see cref="T:System.Char"/> to use</param>
+            <param name="x">Horizontal placement</param>
+            <param name="startY">Vertical start of the line</param>
+            <param name="length">Length of the line</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteChar(System.Char,System.Int32,System.Int32)">
+            <summary>
+            Writes the specified <see cref="T:System.Char"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+            <param name="c">Character to add</param>
+            <param name="x">Horizontal placement</param>
+            <param name="y">Vertical placement</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteHorizontalText(System.String,System.Int32,System.Int32)">
+            <summary>
+            Writes <paramref name="input"/> horizontally to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startX"/>
+            </summary>
+            <param name="input">Text to add</param>
+            <param name="y">Vertical placement</param>
+            <param name="startX">Horizontal placement of the first input character</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteVerticalText(System.String,System.Int32,System.Int32)">
+            <summary>
+            Writes <paramref name="input"/> vertically to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startY"/>
+            </summary>
+            <param name="input">Text to add</param>
+            <param name="x">Horizontal placement</param>
+            <param name="startY">Vertical placement of the first input character</param>
+        </member>
+        <member name="T:TermCraft.AI">
+            <summary>
+            Data class for <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.AI.inventory">
+            <summary>
+            The <see cref="T:TermCraft.Inventory"/> attached to this <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.AI.name">
+            <summary>
+            The name of this <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.AI.level">
+            <summary>
+            The level of tihs <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.AI.Type">
+            <summary>
+            Enumerable list of <see cref="T:TermCraft.AI.Type"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.AI.type">
+            <summary>
+            The <see cref="T:TermCraft.AI.Type"/> of this <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.AI.#ctor(TermCraft.AI.Type,System.String)">
+            <summary>
+            Creates a new <see cref="T:TermCraft.AI"/> of <see cref="T:TermCraft.AI.Type"/> <paramref name="type"/> with the set <paramref name="name"/> and adds it to the <see cref="T:TermCraft.Register"/>
+            </summary>
+            <param name="type">The <see cref="T:TermCraft.AI.Type"/> of <see cref="T:TermCraft.AI"/></param>
+            <param name="name">The name of the <see cref="T:TermCraft.AI"/></param>
+        </member>
+        <member name="M:TermCraft.AI.#ctor(TermCraft.AI.Type,System.String,TermCraft.Inventory,System.Int16)">
+            <summary>
+            Loads an <see cref="T:TermCraft.AI"/> to the <see cref="T:TermCraft.Register"/> with the set parameters
+            </summary>
+            <param name="type">The <see cref="T:TermCraft.AI.Type"/> of <see cref="T:TermCraft.AI"/></param>
+            <param name="name">The name of the <see cref="T:TermCraft.AI"/></param>
+            <param name="inventory">The <see cref="T:TermCraft.Inventory"/> of the <see cref="T:TermCraft.AI"/></param>
+            <param name="level">The level of the <see cref="T:TermCraft.AI"/></param>
+        </member>
+        <member name="T:TermCraft.Building">
+            <summary>
+            Data class for <see cref="T:TermCraft.Building"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Building.inventory">
+            <summary>
+            The <see cref="T:TermCraft.Inventory"/> attached to this <see cref="T:TermCraft.Building"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Building.name">
+            <summary>
+            The name of this <see cref="T:TermCraft.Building"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Building.desc">
+            <summary>
+            The description of this <see cref="T:TermCraft.Building"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Building.value">
+            <summary>
+            The value of this <see cref="T:TermCraft.Building"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Building.level">
+            <summary>
+            The level of this <see cref="T:TermCraft.Building"/>
+            </summary>
+        </member>
+        <member name="F:TermCraft.Building.availableCommands">
+            <summary>
+            A list of available commands for this <see cref="T:TermCraft.Building"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.Building.Type">
+            <summary>
+            Enumerable list of <see cref="T:TermCraft.Building.Type"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Building.type">
+            <summary>
+            The <see cref="T:TermCraft.Building.Type"/> of this <see cref="T:TermCraft.Building"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Building.#ctor(TermCraft.Building.Type,System.Double,System.String,System.String,System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:TermCraft.Building"/> of <see cref="T:TermCraft.Building.Type"/> <paramref name="type"/> with the set parameters and adds it to the <see cref="T:TermCraft.Register"/>
+            </summary>
+            <param name="type">The <see cref="T:TermCraft.Building.Type"/> of <see cref="T:TermCraft.Building"/></param>
+            <param name="value">The value of this <see cref="T:TermCraft.Building"/></param>
+            <param name="name">The name of this <see cref="T:TermCraft.Building"/></param>
+            <param name="desc">The description of this <see cref="T:TermCraft.Building"/></param>
+            <param name="noInv">Set to <see cref="!:true"/> if populating <see cref="T:TermCraft.Database"/></param>
+        </member>
+        <member name="M:TermCraft.Building.#ctor(TermCraft.Building.Type,System.Double,System.String,System.String,TermCraft.Inventory,System.Int16)">
+            <summary>
+            Loads the specified <see cref="T:TermCraft.Building"/> of <see cref="T:TermCraft.Building.Type"/> <paramref name="type"/> with the set parameters and adds it to the <see cref="T:TermCraft.Register"/>
+            </summary>
+            <param name="type">The <see cref="T:TermCraft.Building.Type"/> of <see cref="T:TermCraft.Building"/></param>
+            <param name="value">The value of this <see cref="T:TermCraft.Building"/></param>
+            <param name="name">The name of this <see cref="T:TermCraft.Building"/></param>
+            <param name="desc">The description of this <see cref="T:TermCraft.Building"/></param>
+            <param name="inventory">The <see cref="T:TermCraft.Inventory"/> of this <see cref="T:TermCraft.Building"/></param>
+            <param name="level">The level of this <see cref="T:TermCraft.Building"/></param>
+        </member>
+        <member name="T:TermCraft.Database">
+            <summary>
+            Database class
+            </summary>
+        </member>
+        <member name="P:TermCraft.Database.items">
+            <summary>
+            A list of all spawnable entities of type <see cref="T:TermCraft.Item"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Database.buildings">
+            <summary>
+            A list of all spawnable entities of type <see cref="T:TermCraft.Building"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Database.Init">
+            <summary>
+            Initializes the <see cref="T:TermCraft.Database"/> and populates it
+            </summary>
+        </member>
+        <member name="M:TermCraft.Database.AddItems">
+            <summary>
+            Adds all premade items of type <see cref="T:TermCraft.Item"/> to <see cref="P:TermCraft.Database.items"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Database.AddBuildings">
+            <summary>
+            Adds all premade buildings of type <see cref="T:TermCraft.Building"/> to <see cref="P:TermCraft.Database.buildings"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.Inventory">
+            <summary>
+            Data class for <see cref="T:TermCraft.Inventory"/>. Used by other entites such as <see cref="T:TermCraft.AI"/>/<see cref="T:TermCraft.Building"/>/<see cref="T:TermCraft.Market"/>/<see cref="T:TermCraft.Player"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Inventory.contents">
+            <summary>
+            A list of type <see cref="T:System.Tuple`2"/> containing the current amount of <see cref="T:TermCraft.Item"/> held in this <see cref="T:TermCraft.Inventory"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Inventory.bankBalance">
+            <summary>
+            The current set balance of this <see cref="T:TermCraft.Inventory"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Inventory.bankAccountNumber">
+            <summary>
+            Holds an eleven-digit unique number
+            </summary>
+        </member>
+        <member name="P:TermCraft.Inventory.bankAccountNumberFormatted">
+            <summary>
+            A <see cref="T:System.String"/> representation of <see cref="P:TermCraft.Inventory.bankAccountNumber"/> formatted to xxxx.xx.xxxxx
+            </summary>
+        </member>
+        <member name="P:TermCraft.Inventory.grantedCredit">
+            <summary>
+            The maximum negative number <see cref="P:TermCraft.Inventory.bankBalance"/> can be set to
+            </summary>
+        </member>
+        <member name="M:TermCraft.Inventory.#ctor">
+            <summary>
+            Sets <see cref="P:TermCraft.Inventory.bankAccountNumber"/> to an unique value and initializes <see cref="P:TermCraft.Inventory.contents"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Inventory.SetBankAccountNumber(System.Int64,System.Int64)">
+            <summary>
+            Sets a random number between <paramref name="min"/> and <paramref name="max"/> of type <see cref="T:System.Int64"/>
+            </summary>
+            <param name="min">The lowest number possible</param>
+            <param name="max">The highest number possible</param>
+            <returns>A number between <paramref name="min"/> and <paramref name="max"/></returns>
+        </member>
+        <member name="M:TermCraft.Inventory.SetCreditLimit(System.Double)">
+            <summary>
+            Sets <see cref="P:TermCraft.Inventory.grantedCredit"/> to <paramref name="limit"/>
+            </summary>
+            <param name="limit">The maximum number that can be set negative</param>
+        </member>
+        <member name="M:TermCraft.Inventory.AddItem(TermCraft.Item,System.Int32)">
+            <summary>
+            Adds the specified <paramref name="amount"/> of type <see cref="T:TermCraft.Item"/>
+            </summary>
+            <param name="item">The <see cref="T:TermCraft.Item"/> to add</param>
+            <param name="amount">The amount of <paramref name="item"/> to add</param>
+        </member>
+        <member name="M:TermCraft.Inventory.RemoveItem(TermCraft.Item,System.Int32)">
+            <summary>
+            Removes the specified <paramref name="amount"/> of type <see cref="T:TermCraft.Item"/>
+            </summary>
+            <param name="item">The <see cref="T:TermCraft.Item"/> to remove</param>
+            <param name="amount">The amount of <paramref name="item"/> to remove</param>
+        </member>
+        <member name="M:TermCraft.Inventory.AddItems(TermCraft.Item[],System.Int32[])">
+            <summary>
+            Adds the specified <paramref name="amounts"/>[] of type <see cref="T:TermCraft.Item"/>[]
+            </summary>
+            <param name="items">The array of type <see cref="T:TermCraft.Item"/> to add</param>
+            <param name="amounts">The array of amount of <paramref name="items"/> to add</param>
+        </member>
+        <member name="M:TermCraft.Inventory.RemoveItems(TermCraft.Item[],System.Int32[])">
+            <summary>
+            Removes the specified <paramref name="amounts"/>[] of type <see cref="T:TermCraft.Item"/>[]
+            </summary>
+            <param name="items">The array of type <see cref="T:TermCraft.Item"/> to remove</param>
+            <param name="amounts">The array of amount of <paramref name="items"/> to remove</param>
+        </member>
+        <member name="M:TermCraft.Inventory.ChangeBalance(System.Double)">
+            <summary>
+            Adds <paramref name="amount"/> to <see cref="P:TermCraft.Inventory.bankBalance"/>.
+            Number can be negative for subtraction
+            </summary>
+            <param name="amount">The amount to add to <see cref="P:TermCraft.Inventory.bankBalance"/></param>
+            <returns><see cref="!:true"/> if successful, <see cref="!:false"/> if failed</returns>
+        </member>
+        <member name="T:TermCraft.Pages">
+            <summary>
+            Data class to draw the selected <see cref="T:TermCraft.Pages.Page"/> to <see cref="F:TermCraft.Buffer.buffer"/>.
+            This class does not call <see cref="M:TermCraft.Buffer.Draw"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.Pages.Page">
+            <summary>
+            Enumerable list of drawable pages
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.currentPage">
+            <summary>
+            Indicates the <see cref="T:TermCraft.Pages.Page"/> that is last drawn to <see cref="T:System.Console"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Pages.lastPage">
+            <summary>
+            Indicates the <see cref="T:TermCraft.Pages.Page"/> that was drawn prior to the <see cref="F:TermCraft.Pages.currentPage"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.SetLastPage(TermCraft.Pages.Page)">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <paramref name="page"/>.
+            Called when writing a <see cref="T:TermCraft.Pages.Page"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:TermCraft.Pages.Init">
+            <summary>
+            Initialize <see cref="T:TermCraft.Pages"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Help">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Help"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Inventory">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Inventory"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Menu">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Menu"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Settings">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Settings"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Market">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Market"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Patreon">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Patreon"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Character">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Character"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Splash">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Splash"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.RecallLastPage">
+            <summary>
+            Writes <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.Program">
+            <summary>
+            Main class
+            </summary>
+        </member>
+        <member name="F:TermCraft.Program.wHorizontal">
+            <summary>
+            Horizontal length of the <see cref="T:System.Console"/>
+            </summary>
+        </member>
+        <member name="F:TermCraft.Program.wVertical">
+            <summary>
+            Vertical length of the <see cref="T:System.Console"/>
+            </summary>
+        </member>
+        <member name="F:TermCraft.Program.inputCaptured">
+            <summary>
+            Indicates if the application is currently reading user input
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.DeleteMenu(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            External
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.GetSystemMenu(System.IntPtr,System.Boolean)">
+            <summary>
+            External
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.GetConsoleWindow">
+            <summary>
+            External
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.Main">
+            <summary>
+            Starting point of the application.
+            Configures <see cref="T:System.Console"/> in multiple steps, then starts capturing input.
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.PreInitConsole">
+            <summary>
+            Stage 1 <see cref="T:System.Console"/> configuration.
+            Locks the size controls and sets the <see cref="T:System.Console"/> size
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.InitConsole">
+            <summary>
+            Stage 2 <see cref="T:System.Console"/> configuration.
+            Initializes all static classes
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.PostInitConsole">
+            <summary>
+            Stage 3 <see cref="T:System.Console"/> configuration.
+            Starts timed events and displays the splash screen
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.CaptureInput">
+            <summary>
+            Begins input capture
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.Terminate">
+            <summary>
+            Called after <see cref="M:TermCraft.Program.CaptureInput"/> stops running.
+            Saves and terminates the application
+            </summary>
+        </member>
+        <member name="M:TermCraft.Program.SetCapture(System.Boolean)">
+            <summary>
+            Sets the state of <see cref="F:TermCraft.Program.inputCaptured"/>
+            </summary>
+            <param name="state">New state</param>
+        </member>
+        <member name="T:TermCraft.Update">
+            <summary>
+            <see cref="M:TermCraft.Update.Tick"/> is running without regards to time passed.
+            </summary>
+        </member>
+        <member name="F:TermCraft.Update.updateThread">
+            <summary>
+            The main <see cref="T:System.Threading.Thread"/>. It calls <see cref="M:TermCraft.Update.Tick"/>
+            </summary>
+        </member>
+        <member name="F:TermCraft.Update.isRunning">
+            <summary>
+            Is set to <see cref="!:true"/> when started.
+            <see cref="F:TermCraft.Update.updateThread"/> stops when set to <see cref="!:false"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Update.Init">
+            <summary>
+            <list type="number">
+            <item><description>Creates <see cref="T:System.Threading.Thread"/> <see cref="F:TermCraft.Update.updateThread"/> and affiliates it with method <see cref="M:TermCraft.Update.Tick"/></description></item>
+            <item><description>Sets <see cref="F:TermCraft.Update.isRunning"/> to <see cref="!:true"/></description></item>
+            <item><description>Starts executing <see cref="M:TermCraft.Update.Tick"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see cref="!:false"/></description></item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Update.Tick">
+            <summary>
+            <see cref="M:TermCraft.Update.Tick"/> runs in <see cref="F:TermCraft.Update.updateThread"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see cref="!:false"/>
+            </summary>
+        </member>
+    </members>
+</doc>
