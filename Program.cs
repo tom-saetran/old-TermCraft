@@ -76,6 +76,7 @@ namespace TermCraft {
 			Database.Init();
 			Buffer.Init();
 			Pages.Init();
+			Update.Init();
 		}
 
 		/// <summary>
