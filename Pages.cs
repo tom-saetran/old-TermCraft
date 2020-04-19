@@ -13,7 +13,47 @@ namespace TermCraft {
 		/// <summary>
 		/// Enumerable list of drawable pages
 		/// </summary>
-		public enum Page { Splash, Menu, Help, Inventory, Settings, Market, Patreon, Character, etc }
+		public enum Page { 
+		/// <summary>
+		/// Splash screen
+		/// </summary>
+		Splash, 
+
+		/// <summary>
+		/// Menu screen
+		/// </summary>
+		Menu, 
+
+		/// <summary>
+		/// Help screen
+		/// </summary>
+		Help, 
+
+		/// <summary>
+		/// Inventory screen
+		/// </summary>
+		Inventory, 
+
+		/// <summary>
+		/// Settings screen
+		/// </summary>
+		Settings, 
+
+		/// <summary>
+		/// Market screen
+		/// </summary>
+		Market, 
+
+		/// <summary>
+		/// Patreon screen
+		/// </summary>
+		Patreon,
+
+		/// <summary>
+		/// Character screen
+		/// </summary>
+		Character
+		}
 
 		/// <summary>
 		/// Indicates the <see cref="Page"/> that is last drawn to <see cref="Console"/>

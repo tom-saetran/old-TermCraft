@@ -15,16 +15,16 @@ namespace TermCraft {
 		private static Thread updateThread;
 
 		/// <summary>
-		/// Is set to <see cref="true"/> when started.
-		/// <see cref="updateThread"/> stops when set to <see cref="false"/>
+		/// Is set to <see langword="true"/> when started.
+		/// <see cref="updateThread"/> stops when set to <see langword="false"/>
 		/// </summary>
 		private static bool isRunning;
 
 		/// <summary>
 		/// <list type="number">
 		/// <item><description>Creates <see cref="Thread"/> <see cref="updateThread"/> and affiliates it with method <see cref="Tick"/></description></item>
-		/// <item><description>Sets <see cref="isRunning"/> to <see cref="true"/></description></item>
-		/// <item><description>Starts executing <see cref="Tick"/> until <see cref="isRunning"/> is set to <see cref="false"/></description></item>
+		/// <item><description>Sets <see cref="isRunning"/> to <see langword="true"/></description></item>
+		/// <item><description>Starts executing <see cref="Tick"/> until <see cref="isRunning"/> is set to <see langword="false"/></description></item>
 		/// </list>
 		/// </summary>
 		public static void Init () {
@@ -34,7 +34,7 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// <see cref="Tick"/> runs in <see cref="updateThread"/> until <see cref="isRunning"/> is set to <see cref="false"/>
+		/// <see cref="Tick"/> runs in <see cref="updateThread"/> until <see cref="isRunning"/> is set to <see langword="false"/>
 		/// </summary>
 		private static void Tick () {
 			do {

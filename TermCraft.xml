@@ -69,7 +69,7 @@
         </member>
         <member name="F:TermCraft.Buffer.buffer">
             <summary>
-            Drawable <see cref="!:char[][]"/> buffer
+            Drawable <see cref="T:System.Char"/>[][] buffer
             </summary>
         </member>
         <member name="F:TermCraft.Buffer.borderCharSet">
@@ -80,6 +80,21 @@
         <member name="T:TermCraft.Buffer.CharSet">
             <summary>
             Character sets
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.CharSet.Default">
+            <summary>
+            Default double-line borders
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.CharSet.Thin">
+            <summary>
+            Thinner single-line version borders
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.CharSet.Full">
+            <summary>
+            Full opacity borders
             </summary>
         </member>
         <member name="M:TermCraft.Buffer.Init">
@@ -100,7 +115,7 @@
         </member>
         <member name="M:TermCraft.Buffer.Clear">
             <summary>
-            Replaces <see cref="F:TermCraft.Buffer.buffer"/> content with <see cref="!:' '"/>.
+            Replaces <see cref="F:TermCraft.Buffer.buffer"/> content with ' '
             Calls <see cref="M:TermCraft.Buffer.BuildDefaultUI"/> after completion
             </summary>
         </member>
@@ -191,6 +206,26 @@
             Enumerable list of <see cref="T:TermCraft.AI.Type"/>
             </summary>
         </member>
+        <member name="F:TermCraft.AI.Type.Investor">
+            <summary>
+            <see cref="T:TermCraft.AI"/> will behave as an Investor
+            </summary>
+        </member>
+        <member name="F:TermCraft.AI.Type.Banker">
+            <summary>
+            <see cref="T:TermCraft.AI"/> will behave as a Banker
+            </summary>
+        </member>
+        <member name="F:TermCraft.AI.Type.Secretary">
+            <summary>
+            <see cref="T:TermCraft.AI"/> will behave as a Secretary
+            </summary>
+        </member>
+        <member name="F:TermCraft.AI.Type.Advisor">
+            <summary>
+            <see cref="T:TermCraft.AI"/> will behave as an Advisor
+            </summary>
+        </member>
         <member name="P:TermCraft.AI.type">
             <summary>
             The <see cref="T:TermCraft.AI.Type"/> of this <see cref="T:TermCraft.AI"/>
@@ -252,6 +287,26 @@
             Enumerable list of <see cref="T:TermCraft.Building.Type"/>
             </summary>
         </member>
+        <member name="F:TermCraft.Building.Type.Bank">
+            <summary>
+            This <see cref="T:TermCraft.Building"/> is behaving as a Bank
+            </summary>
+        </member>
+        <member name="F:TermCraft.Building.Type.Store">
+            <summary>
+            This <see cref="T:TermCraft.Building"/> is behaving as a Store
+            </summary>
+        </member>
+        <member name="F:TermCraft.Building.Type.Home">
+            <summary>
+            This <see cref="T:TermCraft.Building"/> is behaving as the Home of the <see cref="T:TermCraft.Player"/>
+            </summary>
+        </member>
+        <member name="F:TermCraft.Building.Type.Quarry">
+            <summary>
+            This <see cref="T:TermCraft.Building"/> is behaving as a Quarry
+            </summary>
+        </member>
         <member name="P:TermCraft.Building.type">
             <summary>
             The <see cref="T:TermCraft.Building.Type"/> of this <see cref="T:TermCraft.Building"/>
@@ -265,7 +320,7 @@
             <param name="value">The value of this <see cref="T:TermCraft.Building"/></param>
             <param name="name">The name of this <see cref="T:TermCraft.Building"/></param>
             <param name="desc">The description of this <see cref="T:TermCraft.Building"/></param>
-            <param name="noInv">Set to <see cref="!:true"/> if populating <see cref="T:TermCraft.Database"/></param>
+            <param name="noInv">Set to <see langword="true"/> if populating <see cref="T:TermCraft.Database"/></param>
         </member>
         <member name="M:TermCraft.Building.#ctor(TermCraft.Building.Type,System.Double,System.String,System.String,TermCraft.Inventory,System.Int16)">
             <summary>
@@ -391,7 +446,7 @@
             Number can be negative for subtraction
             </summary>
             <param name="amount">The amount to add to <see cref="P:TermCraft.Inventory.bankBalance"/></param>
-            <returns><see cref="!:true"/> if successful, <see cref="!:false"/> if failed</returns>
+            <returns><see langword="true"/> if successful, <see langword="false"/> if failed</returns>
         </member>
         <member name="T:TermCraft.Pages">
             <summary>
@@ -402,6 +457,46 @@
         <member name="T:TermCraft.Pages.Page">
             <summary>
             Enumerable list of drawable pages
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Splash">
+            <summary>
+            Splash screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Menu">
+            <summary>
+            Menu screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Help">
+            <summary>
+            Help screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Inventory">
+            <summary>
+            Inventory screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Settings">
+            <summary>
+            Settings screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Market">
+            <summary>
+            Market screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Patreon">
+            <summary>
+            Patreon screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Character">
+            <summary>
+            Character screen
             </summary>
         </member>
         <member name="F:TermCraft.Pages.currentPage">
@@ -567,22 +662,22 @@
         </member>
         <member name="F:TermCraft.Update.isRunning">
             <summary>
-            Is set to <see cref="!:true"/> when started.
-            <see cref="F:TermCraft.Update.updateThread"/> stops when set to <see cref="!:false"/>
+            Is set to <see langword="true"/> when started.
+            <see cref="F:TermCraft.Update.updateThread"/> stops when set to <see langword="false"/>
             </summary>
         </member>
         <member name="M:TermCraft.Update.Init">
             <summary>
             <list type="number">
             <item><description>Creates <see cref="T:System.Threading.Thread"/> <see cref="F:TermCraft.Update.updateThread"/> and affiliates it with method <see cref="M:TermCraft.Update.Tick"/></description></item>
-            <item><description>Sets <see cref="F:TermCraft.Update.isRunning"/> to <see cref="!:true"/></description></item>
-            <item><description>Starts executing <see cref="M:TermCraft.Update.Tick"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see cref="!:false"/></description></item>
+            <item><description>Sets <see cref="F:TermCraft.Update.isRunning"/> to <see langword="true"/></description></item>
+            <item><description>Starts executing <see cref="M:TermCraft.Update.Tick"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see langword="false"/></description></item>
             </list>
             </summary>
         </member>
         <member name="M:TermCraft.Update.Tick">
             <summary>
-            <see cref="M:TermCraft.Update.Tick"/> runs in <see cref="F:TermCraft.Update.updateThread"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see cref="!:false"/>
+            <see cref="M:TermCraft.Update.Tick"/> runs in <see cref="F:TermCraft.Update.updateThread"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see langword="false"/>
             </summary>
         </member>
     </members>

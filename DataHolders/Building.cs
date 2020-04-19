@@ -30,15 +30,36 @@
 		/// </summary>
 		public short level { get; private set; }
 
+		// TODO: Fix this
 		/// <summary>
 		/// A list of available commands for this <see cref="Building"/>
 		/// </summary>
-		public readonly string[] availableCommands = new string[4] { "produce", "cancel", "upgrade", "etc" };
+		private readonly string[] availableCommands = new string[4] { "produce", "cancel", "upgrade", "etc" };
 
 		/// <summary>
 		/// Enumerable list of <see cref="Type"/>
 		/// </summary>
-		public enum Type { Bank, Store, Home, Quarry, etc }
+		public enum Type { 
+			/// <summary>
+			/// This <see cref="Building"/> is behaving as a Bank
+			/// </summary>
+			Bank,
+
+			/// <summary>
+			/// This <see cref="Building"/> is behaving as a Store
+			/// </summary>
+			Store,
+
+			/// <summary>
+			/// This <see cref="Building"/> is behaving as the Home of the <see cref="Player"/>
+			/// </summary>
+			Home,
+
+			/// <summary>
+			/// This <see cref="Building"/> is behaving as a Quarry
+			/// </summary>
+			Quarry
+		}
 
 		/// <summary>
 		/// The <see cref="Type"/> of this <see cref="Building"/>
@@ -52,7 +73,7 @@
 		/// <param name="value">The value of this <see cref="Building"/></param>
 		/// <param name="name">The name of this <see cref="Building"/></param>
 		/// <param name="desc">The description of this <see cref="Building"/></param>
-		/// <param name="noInv">Set to <see cref="true"/> if populating <see cref="Database"/></param>
+		/// <param name="noInv">Set to <see langword="true"/> if populating <see cref="Database"/></param>
 		public Building (Type type, double value, string name, string desc, bool noInv = false) {
 			this.type = type;
 			this.value = value;

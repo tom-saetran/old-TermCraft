@@ -57,8 +57,8 @@ namespace TermCraft {
 		/// Locks the size controls and sets the <see cref="Console"/> size
 		/// </summary>
 		private static void PreInitConsole () {
-			DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), 0xF030, 0);
-			DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), 0xF000, 0);
+			_ = DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), 0xF030, 0);
+			_ = DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), 0xF000, 0);
 
 			Console.SetWindowSize(wHorizontal, wVertical);
 			Console.SetBufferSize(wHorizontal, wVertical);

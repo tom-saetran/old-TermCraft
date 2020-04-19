@@ -13,7 +13,11 @@ namespace TermCraft {
 		/// </summary>
 		/// <param name="input">Set by <see cref="Console.ReadLine"/></param>
 		public static void DoAction (string input) {
-			switch (input.ToLower()) {
+
+			if (input == null)
+				throw new ArgumentNullException(nameof(input));
+
+			switch (input.ToLower(new System.Globalization.CultureInfo("en-US", false))) {
 				case string s when (s == "c" || s == "char" || s == "character"):
 					OpenCharacter();
 					break;

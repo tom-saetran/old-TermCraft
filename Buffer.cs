@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 
 namespace TermCraft {
 
@@ -11,7 +8,7 @@ namespace TermCraft {
 	public static class Buffer {
 
 		/// <summary>
-		/// Drawable <see cref="char[][]"/> buffer
+		/// Drawable <see cref="char"/>[][] buffer
 		/// </summary>
 		public static readonly char[][] buffer = new char[Program.wHorizontal][];
 
@@ -23,7 +20,22 @@ namespace TermCraft {
 		/// <summary>
 		/// Character sets
 		/// </summary>
-		public enum CharSet { Default, Thin, Full }
+		public enum CharSet {
+			/// <summary>
+			/// Default double-line borders
+			/// </summary>
+			Default,
+
+			/// <summary>
+			/// Thinner single-line version borders
+			/// </summary>
+			Thin,
+
+			/// <summary>
+			/// Full opacity borders
+			/// </summary>
+			Full
+		}
 
 		/// <summary>
 		/// Initialize <see cref="buffer"/>
@@ -82,7 +94,7 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Replaces <see cref="buffer"/> content with <see cref="' '"/>.
+		/// Replaces <see cref="buffer"/> content with ' '
 		/// Calls <see cref="BuildDefaultUI"/> after completion
 		/// </summary>
 		public static void Clear () {

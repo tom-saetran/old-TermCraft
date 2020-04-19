@@ -42,7 +42,7 @@ namespace TermCraft {
 			if (Register.BankAccountNumberInUse(bankAccountNumber))
 				bankAccountNumber = SetBankAccountNumber(20000000000, 99999999999);
 
-			bankAccountNumberFormatted = bankAccountNumber.ToString();
+			bankAccountNumberFormatted = bankAccountNumber.ToString(new System.Globalization.CultureInfo("en-US", false));
 			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(4, ".");
 			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(7, ".");
 
@@ -116,7 +116,7 @@ namespace TermCraft {
 		/// Number can be negative for subtraction
 		/// </summary>
 		/// <param name="amount">The amount to add to <see cref="bankBalance"/></param>
-		/// <returns><see cref="true"/> if successful, <see cref="false"/> if failed</returns>
+		/// <returns><see langword="true"/> if successful, <see langword="false"/> if failed</returns>
 		public bool ChangeBalance(double amount) { 
 			if (bankBalance + amount >= grantedCredit) {
 				bankBalance += amount;

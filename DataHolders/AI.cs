@@ -23,7 +23,27 @@
 		/// <summary>
 		/// Enumerable list of <see cref="Type"/>
 		/// </summary>
-		public enum Type { Investor, Banker, Secretary, Advisor, etc }
+		public enum Type {
+			/// <summary>
+			/// <see cref="AI"/> will behave as an Investor
+			/// </summary>
+			Investor,
+
+			/// <summary>
+			/// <see cref="AI"/> will behave as a Banker
+			/// </summary>
+			Banker,
+
+			/// <summary>
+			/// <see cref="AI"/> will behave as a Secretary
+			/// </summary>
+			Secretary,
+
+			/// <summary>
+			/// <see cref="AI"/> will behave as an Advisor
+			/// </summary>
+			Advisor
+		}
 
 		/// <summary>
 		/// The <see cref="Type"/> of this <see cref="AI"/>
