@@ -34,7 +34,7 @@
 		/// <summary>
 		/// A list of available commands for this <see cref="Building"/>
 		/// </summary>
-		private readonly string[] availableCommands = new string[4] { "produce", "cancel", "upgrade", "etc" };
+		public readonly string[] availableCommands = new string[4] { "produce", "cancel", "upgrade", "etc" };
 
 		/// <summary>
 		/// Enumerable list of <see cref="Type"/>
@@ -79,10 +79,11 @@
 			this.value = value;
 			this.name = name;
 			this.desc = desc;
-			if (!noInv)
-				inventory = new Inventory();
 			level = 1;
-			Register.AddToRegister(this);
+			if (!noInv) {
+				inventory = new Inventory();
+				Register.AddToRegister(this);
+			}
 		}
 
 		/// <summary>
@@ -102,6 +103,13 @@
 			this.inventory = inventory;
 			this.level = level;
 			Register.AddToRegister(this);
+		}
+
+		/// <summary>
+		/// Removes <see langword="this"/> <see cref="Building"/> from the <see cref="Register"/>
+		/// </summary>
+		public void Remove () {
+			Register.RemoveFromRegister(this);
 		}
 	}
 }

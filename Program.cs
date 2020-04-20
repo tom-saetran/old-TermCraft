@@ -77,6 +77,7 @@ namespace TermCraft {
 			Buffer.Init();
 			Pages.Init();
 			Update.Init();
+			Market.Init();
 		}
 
 		/// <summary>

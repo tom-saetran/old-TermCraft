@@ -77,5 +77,12 @@
 			this.inventory = inventory;
 			Register.AddToRegister(this);
 		}
+
+		/// <summary>
+		/// Removes <see langword="this"/> <see cref="AI"/> from the <see cref="Register"/>
+		/// </summary>
+		public void Remove () {
+			Register.RemoveFromRegister(this);
+		}
 	}
 }

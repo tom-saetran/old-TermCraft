@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace TermCraft {
 	public static class Name {
-		static string[] femaleFirstNames;
-		static string[] femaleMiddleNames;
+		private static string[] femaleFirstNames;
+		private static string[] femaleMiddleNames;
 
-		static string[] maleFirstNames;
-		static string[] maleMiddleNames;
+		private static string[] maleFirstNames;
+		private static string[] maleMiddleNames;
 
-		static string[] lastNames;
+		private static string[] lastNames;
 
 		public enum Gender { Female, Male }
-		
-		const float middleNameChance = 0.33f;
-		const float doubleLastNameChance = 0.20f;
+
+		private const float middleNameChance = 0.33f;
+		private const float doubleLastNameChance = 0.20f;
 
 		public static void Init () {
 			FemaleFirstNames();
@@ -23,8 +23,36 @@ namespace TermCraft {
 			MaleMiddleNames();
 			LastNames();
 		}
-
-		static void FemaleFirstNames () {
+		public static string Set (Gender gender) {
+			Random rnd = new Random();
+			bool setMiddleName = false;
+			bool setDoubleLastName = false;
+			if (rnd.NextDouble() < middleNameChance) setMiddleName = true;
+			if (rnd.NextDouble() < doubleLastNameChance) setDoubleLastName = true;
+			string name = "";
+			if (gender == Gender.Female) {
+				name += femaleFirstNames[rnd.Next(0, femaleFirstNames.Length)];
+				name += " ";
+				if (setMiddleName) {
+					name += femaleMiddleNames[rnd.Next(0, femaleMiddleNames.Length)]; ;
+					name += " ";
+				}
+			} else {
+				name += maleFirstNames[rnd.Next(0, maleFirstNames.Length)];
+				name += " ";
+				if (setMiddleName) {
+					name += maleMiddleNames[rnd.Next(0, maleMiddleNames.Length)]; ;
+					name += " ";
+				}
+			}
+			if (setDoubleLastName) {
+				name += lastNames[rnd.Next(0, lastNames.Length)];
+				name += " ";
+			}
+			name += lastNames[rnd.Next(0, lastNames.Length)];
+			return name;
+		}
+		private static void FemaleFirstNames () {
 			femaleFirstNames = new string[] {
 			"Sara",
 			"Eva",
@@ -37,7 +65,7 @@ namespace TermCraft {
 			"Sandra"
 			};
 		}
-		static void FemaleMiddleNames () {
+		private static void FemaleMiddleNames () {
 			femaleMiddleNames = new string[] {
 			"Fredrikke",
 			"Leonora",
@@ -45,7 +73,7 @@ namespace TermCraft {
 			"Margareth"
 			};
 		}
-		static void MaleFirstNames () {
+		private static void MaleFirstNames () {
 			maleFirstNames = new string[] {
 			"Mike",
 			"Fritz",
@@ -58,7 +86,7 @@ namespace TermCraft {
 			"Jim"
 			};
 		}
-		static void MaleMiddleNames () {
+		private static void MaleMiddleNames () {
 			maleMiddleNames = new string[] {
 			"O'Brian",
 			"Henry",
@@ -66,7 +94,7 @@ namespace TermCraft {
 			"Helmut"
 			};
 		}
-		static void LastNames () {
+		private static void LastNames () {
 			lastNames = new string[] {
 				"Wood",
 				"Sullivan",
@@ -150,34 +178,6 @@ namespace TermCraft {
 				"Lee"
 			};
 		}
-		public static string Set (Gender gender) {
-			Random rnd = new Random();
-			bool setMiddleName = false;
-			bool setDoubleLastName = false;
-			if (rnd.NextDouble() < middleNameChance) setMiddleName = true;
-			if (rnd.NextDouble() < doubleLastNameChance) setDoubleLastName = true;
-			string name = "";
-			if (gender == Gender.Female) {
-				name += femaleFirstNames[rnd.Next(0, femaleFirstNames.Length)];
-				name += " ";
-				if (setMiddleName) {
-					name += femaleMiddleNames[rnd.Next(0, femaleMiddleNames.Length)]; ;
-					name += " ";
-				}
-			} else {
-				name += maleFirstNames[rnd.Next(0, maleFirstNames.Length)];
-				name += " ";
-				if (setMiddleName) {
-					name += maleMiddleNames[rnd.Next(0, maleMiddleNames.Length)]; ;
-					name += " ";
-				}
-			}
-			if (setDoubleLastName) {
-				name += lastNames[rnd.Next(0, lastNames.Length)];
-				name += " ";
-			}
-			name += lastNames[rnd.Next(0, lastNames.Length)];
-			return name;
-		}
+
 	}
 }

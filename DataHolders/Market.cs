@@ -1,16 +1,14 @@
 ﻿namespace TermCraft {
-	class Market {
-		public Inventory inventory { get; private set; }
+	public static class Market {
+		public static Inventory inventory { get; private set; }
 
-		public Market () { inventory = new Inventory(); }
-		public Market (Inventory inventory) { this.inventory = inventory; }
-		bool isActive;
-		public readonly string[] availableCommands = new string[4] { "buy", "sell", "leave", "etc" };
-		// runs in own thread, buy/sell and fluctuate prices
+		public static void Init () { inventory = new Inventory(); }
+		private static bool isActive;
+		public static readonly string[] availableCommands = new string[4] { "buy", "sell", "leave", "etc" };
 
-		public void AddToMarket (Item item, int amount, double price) { }
-		public void AddToMarket (Item[] items, int[] amounts, double[] prices) { }
-		public void BuyFromMarket (Item item, int amount) { }
-		public void BuyFromMarket (Item[] items, int[] amounts) { }
+		public static void AddToMarket (Item item, int amount, double price) { }
+		public static void AddToMarket (Item[] items, int[] amounts, double[] prices) { }
+		public static void BuyFromMarket (Item item, int amount) { }
+		public static void BuyFromMarket (Item[] items, int[] amounts) { }
 	}
 }

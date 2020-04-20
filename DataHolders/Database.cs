@@ -52,6 +52,7 @@ namespace TermCraft {
 			items.Add(new Item(Item.Type.RawResource, Item.Unit.Ton, 21.33d, "Sand", "Extremely annoying to get in your eyes"));
 			items.Add(new Item(Item.Type.RawResource, Item.Unit.m3, 3.21d, "Water", "Proven to be possible to carry in a sieve"));
 			items.Add(new Item(Item.Type.RawResource, Item.Unit.Kilogram, 4.20d, "Salt", "Makes milk taste very unpleasant"));
+			items.Add(new Item(Item.Type.RawResource, Item.Unit.Gram, 42.0d, "Gold Ore", "This isn't shiny at all.."));
 		}
 
 		/// <summary>

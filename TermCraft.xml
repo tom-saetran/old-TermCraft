@@ -247,6 +247,11 @@
             <param name="inventory">The <see cref="T:TermCraft.Inventory"/> of the <see cref="T:TermCraft.AI"/></param>
             <param name="level">The level of the <see cref="T:TermCraft.AI"/></param>
         </member>
+        <member name="M:TermCraft.AI.Remove">
+            <summary>
+            Removes <see langword="this"/> <see cref="T:TermCraft.AI"/> from the <see cref="T:TermCraft.Register"/>
+            </summary>
+        </member>
         <member name="T:TermCraft.Building">
             <summary>
             Data class for <see cref="T:TermCraft.Building"/>
@@ -332,6 +337,11 @@
             <param name="desc">The description of this <see cref="T:TermCraft.Building"/></param>
             <param name="inventory">The <see cref="T:TermCraft.Inventory"/> of this <see cref="T:TermCraft.Building"/></param>
             <param name="level">The level of this <see cref="T:TermCraft.Building"/></param>
+        </member>
+        <member name="M:TermCraft.Building.Remove">
+            <summary>
+            Removes <see langword="this"/> <see cref="T:TermCraft.Building"/> from the <see cref="T:TermCraft.Register"/>
+            </summary>
         </member>
         <member name="T:TermCraft.Database">
             <summary>
@@ -447,6 +457,94 @@
             </summary>
             <param name="amount">The amount to add to <see cref="P:TermCraft.Inventory.bankBalance"/></param>
             <returns><see langword="true"/> if successful, <see langword="false"/> if failed</returns>
+        </member>
+        <member name="T:TermCraft.Item">
+            <summary>
+            Data class for <see cref="T:TermCraft.Item"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Item.name">
+            <summary>
+            The name of this <see cref="T:TermCraft.Item"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Item.desc">
+            <summary>
+            The description of this <see cref="T:TermCraft.Item"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Item.baseValue">
+            <summary>
+            The value of this <see cref="T:TermCraft.Item"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Item.special">
+            <summary>
+            Indicates if this <see cref="T:TermCraft.Item"/> is special
+            </summary>
+        </member>
+        <member name="T:TermCraft.Item.Unit">
+            <summary>
+            Enumerable list of type <see cref="T:TermCraft.Item.Unit"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Item.unit">
+            <summary>
+            The <see cref="T:TermCraft.Item.Unit"/> of this instance of <see cref="T:TermCraft.Item"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.Item.Type">
+            <summary>
+            Enumerable list of type <see cref="T:TermCraft.Item.Type"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Item.type">
+            <summary>
+            The <see cref="T:TermCraft.Item.Type"/> of this instance of <see cref="T:TermCraft.Item"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Item.#ctor(TermCraft.Item.Type,TermCraft.Item.Unit,System.Double,System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:TermCraft.Item"/> with the given parameters
+            </summary>
+            <param name="type"><see cref="T:TermCraft.Item.Type"/> of <see cref="T:TermCraft.Item"/></param>
+            <param name="unit"><see cref="T:TermCraft.Item.Unit"/> of <see cref="T:TermCraft.Item"/></param>
+            <param name="baseValue">The value of the <see cref="T:TermCraft.Item"/></param>
+            <param name="name">The name of the <see cref="T:TermCraft.Item"/></param>
+            <param name="desc">The description of the <see cref="T:TermCraft.Item"/></param>
+        </member>
+        <member name="M:TermCraft.Item.SetSpecial(System.Boolean)">
+            <summary>
+            Sets the <see cref="P:TermCraft.Item.special"/> boolean of this <see cref="T:TermCraft.Item"/> to the value of <paramref name="special"/>
+            </summary>
+            <param name="special">The state to set <see cref="P:TermCraft.Item.special"/> too</param>
+        </member>
+        <member name="T:TermCraft.Player">
+            <summary>
+            Class of <see cref="T:TermCraft.Player"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Player.inventory">
+            <summary>
+            The <see cref="T:TermCraft.Inventory"/> attached to the <see cref="T:TermCraft.Player"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Player.level">
+            <summary>
+            The level of the <see cref="T:TermCraft.Player"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Player.Init">
+            <summary>
+            Initializes the <see cref="P:TermCraft.Player.inventory"/> of <see cref="T:TermCraft.Player"/> and sets <see cref="P:TermCraft.Player.level"/> to 1
+            </summary>
+        </member>
+        <member name="M:TermCraft.Player.Init(TermCraft.Inventory,System.Int16)">
+            <summary>
+            Loads <paramref name="inventory"/> and <paramref name="level"/> to <see cref="P:TermCraft.Player.inventory"/> and <see cref="P:TermCraft.Player.level"/>
+            </summary>
+            <param name="inventory"></param>
+            <param name="level"></param>
         </member>
         <member name="T:TermCraft.Pages">
             <summary>

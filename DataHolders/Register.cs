@@ -28,13 +28,11 @@ namespace TermCraft {
 		}
 		public static void AddToRegister (AI ai) { AIs.Add(ai); }
 		public static void AddToRegister (Building building) { Buildings.Add(building); }
-		public static bool RemoveFromRegister (AI ai) { 
-			try { AIs.Remove(ai); } catch { return false; }
-			return true;
+		public static void RemoveFromRegister (AI ai) { 
+			AIs.Remove(ai);
 		}
-		public static bool RemoveFromRegister (Building building) {
-			try { Buildings.Remove(building); } catch { return false; }
-			return true;
+		public static void RemoveFromRegister (Building building) {
+			Buildings.Remove(building);
 		}
 	}
 }
