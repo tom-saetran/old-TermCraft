@@ -62,6 +62,12 @@
             No valid input detected. Calls <see cref="M:TermCraft.Buffer.Draw"/>
             </summary>
         </member>
+        <member name="M:TermCraft.Bank.AddAccount">
+            <summary>
+            Returns a unique bank account number of type <see cref="T:System.Int64"/> and adds it to <see cref="P:TermCraft.Bank.accountNumbersInUse"/>
+            </summary>
+            <returns>A unique bank account number</returns>
+        </member>
         <member name="T:TermCraft.Buffer">
             <summary>
             Handles the output buffer and output to console
@@ -407,14 +413,6 @@
             <summary>
             Sets <see cref="P:TermCraft.Inventory.bankAccountNumber"/> to an unique value and initializes <see cref="P:TermCraft.Inventory.contents"/>
             </summary>
-        </member>
-        <member name="M:TermCraft.Inventory.SetBankAccountNumber(System.Int64,System.Int64)">
-            <summary>
-            Sets a random number between <paramref name="min"/> and <paramref name="max"/> of type <see cref="T:System.Int64"/>
-            </summary>
-            <param name="min">The lowest number possible</param>
-            <param name="max">The highest number possible</param>
-            <returns>A number between <paramref name="min"/> and <paramref name="max"/></returns>
         </member>
         <member name="M:TermCraft.Inventory.SetCreditLimit(System.Double)">
             <summary>

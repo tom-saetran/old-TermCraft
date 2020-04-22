@@ -71,6 +71,7 @@ namespace TermCraft {
 		/// </summary>
 		private static void InitConsole () {
 			Register.Init();
+			Bank.Init();
 			Player.Init();
 			Name.Init();	
 			Database.Init();

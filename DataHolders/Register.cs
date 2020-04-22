@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace TermCraft {
 	static class Register {
@@ -12,20 +10,6 @@ namespace TermCraft {
 			Buildings = new List<Building>();
 		}
 
-		public static bool BankAccountNumberInUse (long bankAccountNumber) {
-			if (Player.inventory != null && Player.inventory.bankAccountNumber == bankAccountNumber)
-				return true;
-		
-			for (int i = 0; i < AIs.Count; i++) {
-				if (AIs[i].inventory.bankAccountNumber == bankAccountNumber)
-					return true;
-			}
-			for (int i = 0; i < Buildings.Count; i++) {
-				if (Buildings[i].inventory.bankAccountNumber == bankAccountNumber)
-					return true;
-			}
-			return false;
-		}
 		public static void AddToRegister (AI ai) { AIs.Add(ai); }
 		public static void AddToRegister (Building building) { Buildings.Add(building); }
 		public static void RemoveFromRegister (AI ai) { 

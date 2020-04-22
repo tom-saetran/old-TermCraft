@@ -37,10 +37,7 @@ namespace TermCraft {
 		/// Sets <see cref="bankAccountNumber"/> to an unique value and initializes <see cref="contents"/>
 		/// </summary>
 		public Inventory () {
-			bankAccountNumber = SetBankAccountNumber(20000000000, 99999999999);
-
-			if (Register.BankAccountNumberInUse(bankAccountNumber))
-				bankAccountNumber = SetBankAccountNumber(20000000000, 99999999999);
+			bankAccountNumber = Bank.AddAccount();
 
 			bankAccountNumberFormatted = bankAccountNumber.ToString(new System.Globalization.CultureInfo("en-US", false));
 			bankAccountNumberFormatted = bankAccountNumberFormatted.Insert(4, ".");
@@ -49,24 +46,6 @@ namespace TermCraft {
 			bankBalance = 0;
 			grantedCredit = 0;
 			contents = new List<Tuple<Item, int>>();
-		}
-
-		/// <summary>
-		/// Sets a random number between <paramref name="min"/> and <paramref name="max"/> of type <see cref="long"/>
-		/// </summary>
-		/// <param name="min">The lowest number possible</param>
-		/// <param name="max">The highest number possible</param>
-		/// <returns>A number between <paramref name="min"/> and <paramref name="max"/></returns>
-		private long SetBankAccountNumber (long min, long max) {
-			Random random = new Random();
-			ulong uRange = (ulong)(max - min);
-			ulong ulongRand;
-			do {
-				byte[] buf = new byte[8];
-				random.NextBytes(buf);
-				ulongRand = (ulong)BitConverter.ToInt64(buf, 0);
-			} while (ulongRand > ulong.MaxValue - ((ulong.MaxValue % uRange) + 1) % uRange);
-			return (long)(ulongRand % uRange) + min;
 		}
 
 		/// <summary>
