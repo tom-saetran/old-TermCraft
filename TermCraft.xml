@@ -566,6 +566,11 @@
             </summary>
             <param name="special">The state to set <see cref="P:TermCraft.Item.special"/> too</param>
         </member>
+        <member name="T:TermCraft.Market">
+            <summary>
+            The <see cref="T:TermCraft.Market"/> is used to convey items around
+            </summary>
+        </member>
         <member name="T:TermCraft.Pages">
             <summary>
             Data class to draw the selected <see cref="T:TermCraft.Pages.Page"/> to <see cref="F:TermCraft.Buffer.buffer"/>.

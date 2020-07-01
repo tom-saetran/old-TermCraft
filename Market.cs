@@ -1,4 +1,8 @@
 ﻿namespace TermCraft {
+
+	/// <summary>
+	/// The <see cref="Market"/> is used to convey items around
+	/// </summary>
 	public static class Market {
 		public static Inventory inventory { get; private set; }
 
