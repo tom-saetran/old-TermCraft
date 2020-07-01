@@ -132,9 +132,9 @@ namespace TermCraft {
 
 		/// <summary>
 		/// Sets <see cref="lastPage"/> to <see cref="currentPage"/>.
-		/// Writes <see cref="Character"/> to <see cref="Buffer.buffer"/>
+		/// Writes <see cref="Player"/> to <see cref="Buffer.buffer"/>
 		/// </summary>
-		public static void Character () {
+		public static void Player () {
 			SetLastPage(currentPage);
 		}
 
@@ -170,7 +170,7 @@ namespace TermCraft {
 					Patreon();
 					break;
 				case Page.Character:
-					Character();
+					Player();
 					break;
 				case Page.Splash:
 					Splash();

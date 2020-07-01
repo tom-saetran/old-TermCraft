@@ -38,7 +38,7 @@
         </member>
         <member name="M:TermCraft.Actions.OpenCharacter">
             <summary>
-            Builds <see cref="M:TermCraft.Pages.Character"/> to <see cref="F:TermCraft.Buffer.buffer"/> and calls <see cref="M:TermCraft.Buffer.Draw"/>
+            Builds <see cref="M:TermCraft.Pages.Player"/> to <see cref="F:TermCraft.Buffer.buffer"/> and calls <see cref="M:TermCraft.Buffer.Draw"/>
             </summary>
         </member>
         <member name="M:TermCraft.Actions.Select">
@@ -62,11 +62,131 @@
             No valid input detected. Calls <see cref="M:TermCraft.Buffer.Draw"/>
             </summary>
         </member>
+        <member name="T:TermCraft.AI">
+            <summary>
+            Data class for <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.AI.inventory">
+            <summary>
+            The <see cref="T:TermCraft.Inventory"/> attached to this <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.AI.name">
+            <summary>
+            The name of this <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.AI.level">
+            <summary>
+            The level of tihs <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.AI.Type">
+            <summary>
+            Enumerable list of <see cref="T:TermCraft.AI.Type"/>
+            </summary>
+        </member>
+        <member name="F:TermCraft.AI.Type.Investor">
+            <summary>
+            <see cref="T:TermCraft.AI"/> will behave as an Investor
+            </summary>
+        </member>
+        <member name="F:TermCraft.AI.Type.Banker">
+            <summary>
+            <see cref="T:TermCraft.AI"/> will behave as a Banker
+            </summary>
+        </member>
+        <member name="F:TermCraft.AI.Type.Secretary">
+            <summary>
+            <see cref="T:TermCraft.AI"/> will behave as a Secretary
+            </summary>
+        </member>
+        <member name="F:TermCraft.AI.Type.Advisor">
+            <summary>
+            <see cref="T:TermCraft.AI"/> will behave as an Advisor
+            </summary>
+        </member>
+        <member name="P:TermCraft.AI.type">
+            <summary>
+            The <see cref="T:TermCraft.AI.Type"/> of this <see cref="T:TermCraft.AI"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.AI.#ctor(TermCraft.AI.Type,System.String)">
+            <summary>
+            Creates a new <see cref="T:TermCraft.AI"/> of <see cref="T:TermCraft.AI.Type"/> <paramref name="type"/> with the set <paramref name="name"/> and adds it to the <see cref="T:TermCraft.Register"/>
+            </summary>
+            <param name="type">The <see cref="T:TermCraft.AI.Type"/> of <see cref="T:TermCraft.AI"/></param>
+            <param name="name">The name of the <see cref="T:TermCraft.AI"/></param>
+        </member>
+        <member name="M:TermCraft.AI.#ctor(TermCraft.AI.Type,System.String,TermCraft.Inventory,System.Int16)">
+            <summary>
+            Loads an <see cref="T:TermCraft.AI"/> to the <see cref="T:TermCraft.Register"/> with the set parameters
+            </summary>
+            <param name="type">The <see cref="T:TermCraft.AI.Type"/> of <see cref="T:TermCraft.AI"/></param>
+            <param name="name">The name of the <see cref="T:TermCraft.AI"/></param>
+            <param name="inventory">The <see cref="T:TermCraft.Inventory"/> of the <see cref="T:TermCraft.AI"/></param>
+            <param name="level">The level of the <see cref="T:TermCraft.AI"/></param>
+        </member>
+        <member name="M:TermCraft.AI.Remove">
+            <summary>
+            Removes <see langword="this"/> <see cref="T:TermCraft.AI"/> from the <see cref="T:TermCraft.Register"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.Bank">
+            <summary>
+            The <see cref="T:TermCraft.Bank"/> keeps track of which account numbers are in use
+            </summary>
+        </member>
+        <member name="P:TermCraft.Bank.accountNumbersInUse">
+            <summary>
+            A <see cref="T:System.Collections.Generic.List`1"/> over the currently used account numbers
+            </summary>
+        </member>
+        <member name="F:TermCraft.Bank.accountNumbersInUse1_4">
+            <summary>
+            First 4 digits of <see cref="P:TermCraft.Bank.accountNumbersInUse"/>
+            </summary>
+        </member>
+        <member name="F:TermCraft.Bank.accountNumbersInUse5_6">
+            <summary>
+            Middle 2 digits of <see cref="P:TermCraft.Bank.accountNumbersInUse"/>
+            </summary>
+        </member>
+        <member name="F:TermCraft.Bank.accountNumbersInUse7_11">
+            <summary>
+            Last 5 digits of <see cref="P:TermCraft.Bank.accountNumbersInUse"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Bank.Init">
+            <summary>
+            Initializes <see cref="P:TermCraft.Bank.accountNumbersInUse"/>, <see cref="F:TermCraft.Bank.accountNumbersInUse1_4"/>, <see cref="F:TermCraft.Bank.accountNumbersInUse5_6"/> and <see cref="F:TermCraft.Bank.accountNumbersInUse7_11"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Bank.IsAccountInUse(System.Int64)">
+            <summary>
+            Checks if <paramref name="accountNumber"/> is already in use
+            </summary>
+            <param name="accountNumber">The <paramref name="accountNumber"/> to check</param>
+            <returns>Returns <see langword="true"/> if the account is in use</returns>
+        </member>
         <member name="M:TermCraft.Bank.AddAccount">
             <summary>
             Returns a unique bank account number of type <see cref="T:System.Int64"/> and adds it to <see cref="P:TermCraft.Bank.accountNumbersInUse"/>
             </summary>
             <returns>A unique bank account number</returns>
+        </member>
+        <member name="M:TermCraft.Bank.GenerateNumber">
+            <summary>
+            Genereates a random number from 20000000000 to 99999999999
+            </summary>
+            <returns>A random number from 20000000000 to 99999999999</returns>
+        </member>
+        <member name="M:TermCraft.Bank.RemoveAccount(System.Int64)">
+            <summary>
+            Removes the given <paramref name="accountNumber"/> if it exist
+            </summary>
+            <param name="accountNumber">The account number to remove</param>
         </member>
         <member name="T:TermCraft.Buffer">
             <summary>
@@ -186,77 +306,6 @@
             <param name="input">Text to add</param>
             <param name="x">Horizontal placement</param>
             <param name="startY">Vertical placement of the first input character</param>
-        </member>
-        <member name="T:TermCraft.AI">
-            <summary>
-            Data class for <see cref="T:TermCraft.AI"/>
-            </summary>
-        </member>
-        <member name="P:TermCraft.AI.inventory">
-            <summary>
-            The <see cref="T:TermCraft.Inventory"/> attached to this <see cref="T:TermCraft.AI"/>
-            </summary>
-        </member>
-        <member name="P:TermCraft.AI.name">
-            <summary>
-            The name of this <see cref="T:TermCraft.AI"/>
-            </summary>
-        </member>
-        <member name="P:TermCraft.AI.level">
-            <summary>
-            The level of tihs <see cref="T:TermCraft.AI"/>
-            </summary>
-        </member>
-        <member name="T:TermCraft.AI.Type">
-            <summary>
-            Enumerable list of <see cref="T:TermCraft.AI.Type"/>
-            </summary>
-        </member>
-        <member name="F:TermCraft.AI.Type.Investor">
-            <summary>
-            <see cref="T:TermCraft.AI"/> will behave as an Investor
-            </summary>
-        </member>
-        <member name="F:TermCraft.AI.Type.Banker">
-            <summary>
-            <see cref="T:TermCraft.AI"/> will behave as a Banker
-            </summary>
-        </member>
-        <member name="F:TermCraft.AI.Type.Secretary">
-            <summary>
-            <see cref="T:TermCraft.AI"/> will behave as a Secretary
-            </summary>
-        </member>
-        <member name="F:TermCraft.AI.Type.Advisor">
-            <summary>
-            <see cref="T:TermCraft.AI"/> will behave as an Advisor
-            </summary>
-        </member>
-        <member name="P:TermCraft.AI.type">
-            <summary>
-            The <see cref="T:TermCraft.AI.Type"/> of this <see cref="T:TermCraft.AI"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.AI.#ctor(TermCraft.AI.Type,System.String)">
-            <summary>
-            Creates a new <see cref="T:TermCraft.AI"/> of <see cref="T:TermCraft.AI.Type"/> <paramref name="type"/> with the set <paramref name="name"/> and adds it to the <see cref="T:TermCraft.Register"/>
-            </summary>
-            <param name="type">The <see cref="T:TermCraft.AI.Type"/> of <see cref="T:TermCraft.AI"/></param>
-            <param name="name">The name of the <see cref="T:TermCraft.AI"/></param>
-        </member>
-        <member name="M:TermCraft.AI.#ctor(TermCraft.AI.Type,System.String,TermCraft.Inventory,System.Int16)">
-            <summary>
-            Loads an <see cref="T:TermCraft.AI"/> to the <see cref="T:TermCraft.Register"/> with the set parameters
-            </summary>
-            <param name="type">The <see cref="T:TermCraft.AI.Type"/> of <see cref="T:TermCraft.AI"/></param>
-            <param name="name">The name of the <see cref="T:TermCraft.AI"/></param>
-            <param name="inventory">The <see cref="T:TermCraft.Inventory"/> of the <see cref="T:TermCraft.AI"/></param>
-            <param name="level">The level of the <see cref="T:TermCraft.AI"/></param>
-        </member>
-        <member name="M:TermCraft.AI.Remove">
-            <summary>
-            Removes <see langword="this"/> <see cref="T:TermCraft.AI"/> from the <see cref="T:TermCraft.Register"/>
-            </summary>
         </member>
         <member name="T:TermCraft.Building">
             <summary>
@@ -517,33 +566,6 @@
             </summary>
             <param name="special">The state to set <see cref="P:TermCraft.Item.special"/> too</param>
         </member>
-        <member name="T:TermCraft.Player">
-            <summary>
-            Class of <see cref="T:TermCraft.Player"/>
-            </summary>
-        </member>
-        <member name="P:TermCraft.Player.inventory">
-            <summary>
-            The <see cref="T:TermCraft.Inventory"/> attached to the <see cref="T:TermCraft.Player"/>
-            </summary>
-        </member>
-        <member name="P:TermCraft.Player.level">
-            <summary>
-            The level of the <see cref="T:TermCraft.Player"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Player.Init">
-            <summary>
-            Initializes the <see cref="P:TermCraft.Player.inventory"/> of <see cref="T:TermCraft.Player"/> and sets <see cref="P:TermCraft.Player.level"/> to 1
-            </summary>
-        </member>
-        <member name="M:TermCraft.Player.Init(TermCraft.Inventory,System.Int16)">
-            <summary>
-            Loads <paramref name="inventory"/> and <paramref name="level"/> to <see cref="P:TermCraft.Player.inventory"/> and <see cref="P:TermCraft.Player.level"/>
-            </summary>
-            <param name="inventory"></param>
-            <param name="level"></param>
-        </member>
         <member name="T:TermCraft.Pages">
             <summary>
             Data class to draw the selected <see cref="T:TermCraft.Pages.Page"/> to <see cref="F:TermCraft.Buffer.buffer"/>.
@@ -653,10 +675,10 @@
             Writes <see cref="M:TermCraft.Pages.Patreon"/> to <see cref="F:TermCraft.Buffer.buffer"/>
             </summary>
         </member>
-        <member name="M:TermCraft.Pages.Character">
+        <member name="M:TermCraft.Pages.Player">
             <summary>
             Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
-            Writes <see cref="M:TermCraft.Pages.Character"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            Writes <see cref="M:TermCraft.Pages.Player"/> to <see cref="F:TermCraft.Buffer.buffer"/>
             </summary>
         </member>
         <member name="M:TermCraft.Pages.Splash">
@@ -670,9 +692,41 @@
             Writes <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Buffer.buffer"/>
             </summary>
         </member>
+        <member name="T:TermCraft.Player">
+            <summary>
+            Class of <see cref="T:TermCraft.Player"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Player.inventory">
+            <summary>
+            The <see cref="T:TermCraft.Inventory"/> attached to the <see cref="T:TermCraft.Player"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Player.level">
+            <summary>
+            The level of the <see cref="T:TermCraft.Player"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Player.Init">
+            <summary>
+            Initializes the <see cref="P:TermCraft.Player.inventory"/> of <see cref="T:TermCraft.Player"/> and sets <see cref="P:TermCraft.Player.level"/> to 1
+            </summary>
+        </member>
+        <member name="M:TermCraft.Player.Init(TermCraft.Inventory,System.Int16)">
+            <summary>
+            Loads <paramref name="inventory"/> and <paramref name="level"/> to <see cref="P:TermCraft.Player.inventory"/> and <see cref="P:TermCraft.Player.level"/>
+            </summary>
+            <param name="inventory"></param>
+            <param name="level"></param>
+        </member>
         <member name="T:TermCraft.Program">
             <summary>
             Main class
+            </summary>
+        </member>
+        <member name="F:TermCraft.Program.CultureInfo">
+            <summary>
+            Sets the <see cref="T:System.Globalization.CultureInfo"/> to en-US
             </summary>
         </member>
         <member name="F:TermCraft.Program.wHorizontal">

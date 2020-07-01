@@ -89,10 +89,10 @@ namespace TermCraft {
 		}
 
 		/// <summary>
-		/// Builds <see cref="Pages.Character"/> to <see cref="Buffer.buffer"/> and calls <see cref="Buffer.Draw"/>
+		/// Builds <see cref="Pages.Player"/> to <see cref="Buffer.buffer"/> and calls <see cref="Buffer.Draw"/>
 		/// </summary>
 		private static void OpenCharacter () {
-			Pages.Character();
+			Pages.Player();
 			Buffer.Draw();
 		}
 

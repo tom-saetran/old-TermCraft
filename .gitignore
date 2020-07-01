@@ -3,9 +3,5 @@
 ################################################################################
 
 /obj
-/bin/Debug/netcoreapp3.1
-/.vs/TermCraft/v16
-/.vs/TermCraft/DesignTimeBuild
-*.csproj
-*.sln
-.editorconfig
+/bin
+/.vs

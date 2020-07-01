@@ -9,6 +9,11 @@ namespace TermCraft {
 	class Program {
 
 		/// <summary>
+		/// Sets the <see cref="System.Globalization.CultureInfo"/> to en-US
+		/// </summary>
+		public static System.Globalization.CultureInfo CultureInfo = new System.Globalization.CultureInfo("en-US", false);
+
+		/// <summary>
 		/// Horizontal length of the <see cref="Console"/>
 		/// </summary>
 		public const int wHorizontal = 120;
@@ -94,9 +99,21 @@ namespace TermCraft {
 		/// </summary>
 		private static void CaptureInput () {
 			SetCapture(true);
-			while (inputCaptured)
-				Actions.DoAction(Console.ReadLine());
+			ConsoleKeyInfo e;
+			string input = "";
+			while (inputCaptured) {
+				while (true) {
+					e = Console.ReadKey();
 
+					if (e.Key == ConsoleKey.Enter)
+						break;
+
+					input += e.KeyChar;
+				}
+				// TODO get bigger control via state machine and console cursor pos manipulation
+				Actions.DoAction(input);
+				input = "";
+			}
 			Terminate();
 		}
 

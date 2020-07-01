@@ -51,6 +51,7 @@ namespace TermCraft {
 				}
 			}
 			SetBorderCharSet(CharSet.Default);
+			BuildDefaultUI();
 		}
 
 		/// <summary>
