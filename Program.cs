@@ -9,7 +9,7 @@ namespace TermCraft {
 	class Program {
 
 		/// <summary>
-		/// Sets the <see cref="System.Globalization.CultureInfo"/> to en-US
+		/// Sets the games <see cref="System.Globalization.CultureInfo"/> to en-US
 		/// </summary>
 		public static System.Globalization.CultureInfo CultureInfo = new System.Globalization.CultureInfo("en-US", false);
 
@@ -98,10 +98,13 @@ namespace TermCraft {
 		/// Begins input capture
 		/// </summary>
 		private static void CaptureInput () {
+			Buffer.Draw();
 			SetCapture(true);
 			ConsoleKeyInfo e;
 			string input = "";
 			while (inputCaptured) {
+				
+				// Buggy!
 				while (true) {
 					e = Console.ReadKey();
 
@@ -110,6 +113,7 @@ namespace TermCraft {
 
 					input += e.KeyChar;
 				}
+
 				// TODO get bigger control via state machine and console cursor pos manipulation
 				Actions.DoAction(input);
 				input = "";

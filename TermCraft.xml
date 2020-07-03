@@ -571,6 +571,137 @@
             The <see cref="T:TermCraft.Market"/> is used to convey items around
             </summary>
         </member>
+        <member name="P:TermCraft.Market.inventory">
+            <summary>
+            The <see cref="T:TermCraft.Inventory"/> attached to this <see cref="T:TermCraft.Market"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Market.Init">
+            <summary>
+            Initializes the <see cref="P:TermCraft.Market.inventory"/> of the <see cref="T:TermCraft.Market"/> 
+            </summary>
+        </member>
+        <member name="F:TermCraft.Market.availableCommands">
+            <summary>
+            An array of the available commands at the <see cref="T:TermCraft.Market"/> 
+            </summary>
+        </member>
+        <member name="M:TermCraft.Market.AddToMarket(TermCraft.Item,System.Int32,System.Double)">
+            <summary>
+            Add a single <see cref="T:TermCraft.Item"/> to the <see cref="T:TermCraft.Market"/>
+            </summary>
+            <param name="item">The <see cref="T:TermCraft.Item"/> to add</param>
+            <param name="amount">How many of the <see cref="T:TermCraft.Item"/> to add</param>
+            <param name="price">The price of the <see cref="T:TermCraft.Item"/> to add</param>
+        </member>
+        <member name="M:TermCraft.Market.AddToMarket(TermCraft.Item[],System.Int32[],System.Double[])">
+            <summary>
+            Adds multiple <see cref="T:TermCraft.Item"/> to the <see cref="T:TermCraft.Market"/>
+            </summary>
+            <param name="items">The array of <see cref="T:TermCraft.Item"/> to add</param>
+            <param name="amounts">How many of the various <see cref="T:TermCraft.Item"/> to add</param>
+            <param name="prices">The price of the various <see cref="T:TermCraft.Item"/> to add</param>
+        </member>
+        <member name="M:TermCraft.Market.BuyFromMarket(TermCraft.Item,System.Int32)">
+            <summary>
+            Buys a specified <see cref="T:TermCraft.Item"/> from the <see cref="T:TermCraft.Market"/>
+            </summary>
+            <param name="item">What <see cref="T:TermCraft.Item"/> to buy</param>
+            <param name="amount">How many of the <see cref="T:TermCraft.Item"/> to buy
+            </param>
+        </member>
+        <member name="T:TermCraft.Name">
+            <summary>
+            The <see cref="T:TermCraft.Name"/> class is used to generate psuedorandom names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.femaleFirstNames">
+            <summary>
+            Female First Names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.femaleMiddleNames">
+            <summary>
+            Female Middle Names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.maleFirstNames">
+            <summary>
+            Male First Names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.maleMiddleNames">
+            <summary>
+            Males Middle Names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.lastNames">
+            <summary>
+            Gender-neutral Last Names
+            </summary>
+        </member>
+        <member name="T:TermCraft.Name.Gender">
+            <summary>
+            Which <see cref="T:TermCraft.Name.Gender"/> to select
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.Gender.Female">
+            <summary>
+            <see cref="T:TermCraft.Name.Gender"/>is set to Female
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.Gender.Male">
+            <summary>
+            <see cref="T:TermCraft.Name.Gender"/> is set to Male
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.middleNameChance">
+            <summary>
+            Sets the chance of getting a middle name (0 - 1)
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.doubleLastNameChance">
+            <summary>
+            Sets the chance of getting two last names (0 - 1)
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.Init">
+            <summary>
+            Initializes the various arrays containing names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.Create(TermCraft.Name.Gender)">
+            <summary>
+            Creates a new name and returns it
+            </summary>
+            <param name="gender">Which <see cref="T:TermCraft.Name.Gender"/> to use</param>
+            <returns>The newly generated name</returns>
+        </member>
+        <member name="M:TermCraft.Name.FemaleFirstNames">
+            <summary>
+            Female First Names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.FemaleMiddleNames">
+            <summary>
+            Female Middle Names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.MaleFirstNames">
+            <summary>
+            Male First Names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.MaleMiddleNames">
+            <summary>
+            Male Middle Names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.LastNames">
+            <summary>
+            Gender Neutral Last Names
+            </summary>
+        </member>
         <member name="T:TermCraft.Pages">
             <summary>
             Data class to draw the selected <see cref="T:TermCraft.Pages.Page"/> to <see cref="F:TermCraft.Buffer.buffer"/>.
@@ -731,7 +862,7 @@
         </member>
         <member name="F:TermCraft.Program.CultureInfo">
             <summary>
-            Sets the <see cref="T:System.Globalization.CultureInfo"/> to en-US
+            Sets the games <see cref="T:System.Globalization.CultureInfo"/> to en-US
             </summary>
         </member>
         <member name="F:TermCraft.Program.wHorizontal">
@@ -804,6 +935,50 @@
             Sets the state of <see cref="F:TermCraft.Program.inputCaptured"/>
             </summary>
             <param name="state">New state</param>
+        </member>
+        <member name="T:TermCraft.Register">
+            <summary>
+            AI/Building Register
+            </summary>
+        </member>
+        <member name="P:TermCraft.Register.AIs">
+            <summary>
+            List of <see cref="T:TermCraft.AI"/>s in use
+            </summary>
+        </member>
+        <member name="P:TermCraft.Register.Buildings">
+            <summary>
+            List of <see cref="T:TermCraft.Building"/>s in use
+            </summary>
+        </member>
+        <member name="M:TermCraft.Register.Init">
+            <summary>
+            Initializes <see cref="P:TermCraft.Register.AIs"/> and <see cref="P:TermCraft.Register.Buildings"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Register.AddToRegister(TermCraft.AI)">
+            <summary>
+            Adds a specified <see cref="T:TermCraft.AI"/> to the register
+            </summary>
+            <param name="ai">The <see cref="T:TermCraft.AI"/> to add</param>
+        </member>
+        <member name="M:TermCraft.Register.AddToRegister(TermCraft.Building)">
+            <summary>
+            Adds a specified <see cref="T:TermCraft.Building"/> to the register
+            </summary>
+            <param name="building">The <see cref="T:TermCraft.Building"/> to add</param>
+        </member>
+        <member name="M:TermCraft.Register.RemoveFromRegister(TermCraft.AI)">
+            <summary>
+            Removes the specified <see cref="T:TermCraft.AI"/> from the register
+            </summary>
+            <param name="ai">The <see cref="T:TermCraft.AI"/> to remove</param>
+        </member>
+        <member name="M:TermCraft.Register.RemoveFromRegister(TermCraft.Building)">
+            <summary>
+            Removes the specified <see cref="T:TermCraft.Building"/> from the register
+            </summary>
+            <param name="building">The <see cref="T:TermCraft.Building"/> to Remove</param>
         </member>
         <member name="T:TermCraft.Update">
             <summary>
