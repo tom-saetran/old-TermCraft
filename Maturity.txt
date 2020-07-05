@@ -1,0 +1,20 @@
+﻿Core:
+| Actions		XXX__
+| Buffer		XXXX_
+| Debug			_____
+| Name			XXX__
+| Pages			XXXX_
+| Schedule		X____
+| Task			X____
+| Update		X____
+
+Game:
+| AI			XX___
+| Bank			XXX__
+| Building		XXXX_
+| Database		XXX__
+| Inventory		XXX__
+| Item			XXXX_
+| Market		XX___
+| Player		XX___
+| Register		XXX__

@@ -62,6 +62,373 @@
             No valid input detected. Calls <see cref="M:TermCraft.Buffer.Draw"/>
             </summary>
         </member>
+        <member name="T:TermCraft.Buffer">
+            <summary>
+            Handles the output buffer and output to console
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.buffer">
+            <summary>
+            Drawable <see cref="T:System.Char"/>[][] buffer
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.borderCharSet">
+            <summary>
+            Current character set
+            </summary>
+        </member>
+        <member name="T:TermCraft.Buffer.CharSet">
+            <summary>
+            Character sets
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.CharSet.Default">
+            <summary>
+            Default double-line borders
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.CharSet.Thin">
+            <summary>
+            Thinner single-line version borders
+            </summary>
+        </member>
+        <member name="F:TermCraft.Buffer.CharSet.Full">
+            <summary>
+            Full opacity borders
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.Init">
+            <summary>
+            Initialize <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.SetBorderCharSet(TermCraft.Buffer.CharSet)">
+            <summary>
+            Sets the <see cref="T:TermCraft.Buffer.CharSet"/> used for the borders
+            </summary>
+            <param name="charSet">Selected <see cref="T:TermCraft.Buffer.CharSet"/></param>
+        </member>
+        <member name="M:TermCraft.Buffer.Draw">
+            <summary>
+            Draws <see cref="F:TermCraft.Buffer.buffer"/> to <see cref="T:System.Console"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.Clear">
+            <summary>
+            Replaces <see cref="F:TermCraft.Buffer.buffer"/> content with ' '
+            Calls <see cref="M:TermCraft.Buffer.BuildDefaultUI"/> after completion
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.BuildDefaultUI">
+            <summary>
+            Builds the default UI with the set <see cref="T:TermCraft.Buffer.CharSet"/>.
+            Called after <see cref="M:TermCraft.Buffer.Clear"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteHorizontalLine(System.Char,System.Int32)">
+            <summary>
+            Writes a full length horizontal line to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+            <param name="c"><see cref="T:System.Char"/> to use</param>
+            <param name="y">Vertical placement</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteHorizontalLine(System.Char,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            Writes a specified <paramref name="length"/> horizontal line to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startX"/>
+            </summary>
+            <param name="c"><see cref="T:System.Char"/> to use</param>
+            <param name="y">Vertical placement</param>
+            <param name="startX">Horizontal start of the line</param>
+            <param name="length">Length of the line</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteVerticalLine(System.Char,System.Int32)">
+            <summary>
+            Writes a full length vertical line to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+            <param name="c"><see cref="T:System.Char"/> to use</param>
+            <param name="x">Horizontal placement</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteVerticalLine(System.Char,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            Writes a specified <paramref name="length"/> vertical line to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startY"/>
+            </summary>
+            <param name="c"><see cref="T:System.Char"/> to use</param>
+            <param name="x">Horizontal placement</param>
+            <param name="startY">Vertical start of the line</param>
+            <param name="length">Length of the line</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteChar(System.Char,System.Int32,System.Int32)">
+            <summary>
+            Writes the specified <see cref="T:System.Char"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+            <param name="c">Character to add</param>
+            <param name="x">Horizontal placement</param>
+            <param name="y">Vertical placement</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteHorizontalText(System.String,System.Int32,System.Int32)">
+            <summary>
+            Writes <paramref name="input"/> horizontally to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startX"/>
+            </summary>
+            <param name="input">Text to add</param>
+            <param name="y">Vertical placement</param>
+            <param name="startX">Horizontal placement of the first input character</param>
+        </member>
+        <member name="M:TermCraft.Buffer.WriteVerticalText(System.String,System.Int32,System.Int32)">
+            <summary>
+            Writes <paramref name="input"/> vertically to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startY"/>
+            </summary>
+            <param name="input">Text to add</param>
+            <param name="x">Horizontal placement</param>
+            <param name="startY">Vertical placement of the first input character</param>
+        </member>
+        <member name="T:TermCraft.Name">
+            <summary>
+            The <see cref="T:TermCraft.Name"/> class is used to generate psuedorandom names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.femaleFirstNames">
+            <summary>
+            Female First Names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.femaleMiddleNames">
+            <summary>
+            Female Middle Names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.maleFirstNames">
+            <summary>
+            Male First Names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.maleMiddleNames">
+            <summary>
+            Males Middle Names
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.lastNames">
+            <summary>
+            Gender-neutral Last Names
+            </summary>
+        </member>
+        <member name="T:TermCraft.Name.Gender">
+            <summary>
+            Which <see cref="T:TermCraft.Name.Gender"/> to select
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.Gender.Female">
+            <summary>
+            <see cref="T:TermCraft.Name.Gender"/>is set to Female
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.Gender.Male">
+            <summary>
+            <see cref="T:TermCraft.Name.Gender"/> is set to Male
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.middleNameChance">
+            <summary>
+            Sets the chance of getting a middle name (0 - 1)
+            </summary>
+        </member>
+        <member name="F:TermCraft.Name.doubleLastNameChance">
+            <summary>
+            Sets the chance of getting two last names (0 - 1)
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.Init">
+            <summary>
+            Initializes the various arrays containing names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.Create(TermCraft.Name.Gender)">
+            <summary>
+            Creates a new name and returns it
+            </summary>
+            <param name="gender">Which <see cref="T:TermCraft.Name.Gender"/> to use</param>
+            <returns>The newly generated name</returns>
+        </member>
+        <member name="M:TermCraft.Name.FemaleFirstNames">
+            <summary>
+            Female First Names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.FemaleMiddleNames">
+            <summary>
+            Female Middle Names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.MaleFirstNames">
+            <summary>
+            Male First Names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.MaleMiddleNames">
+            <summary>
+            Male Middle Names
+            </summary>
+        </member>
+        <member name="M:TermCraft.Name.LastNames">
+            <summary>
+            Gender Neutral Last Names
+            </summary>
+        </member>
+        <member name="T:TermCraft.Pages">
+            <summary>
+            Data class to draw the selected <see cref="T:TermCraft.Pages.Page"/> to <see cref="F:TermCraft.Buffer.buffer"/>.
+            This class does not call <see cref="M:TermCraft.Buffer.Draw"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.Pages.Page">
+            <summary>
+            Enumerable list of drawable pages
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Splash">
+            <summary>
+            Splash screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Menu">
+            <summary>
+            Menu screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Help">
+            <summary>
+            Help screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Inventory">
+            <summary>
+            Inventory screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Settings">
+            <summary>
+            Settings screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Market">
+            <summary>
+            Market screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Patreon">
+            <summary>
+            Patreon screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.Page.Character">
+            <summary>
+            Character screen
+            </summary>
+        </member>
+        <member name="F:TermCraft.Pages.currentPage">
+            <summary>
+            Indicates the <see cref="T:TermCraft.Pages.Page"/> that is last drawn to <see cref="T:System.Console"/>
+            </summary>
+        </member>
+        <member name="P:TermCraft.Pages.lastPage">
+            <summary>
+            Indicates the <see cref="T:TermCraft.Pages.Page"/> that was drawn prior to the <see cref="F:TermCraft.Pages.currentPage"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.SetLastPage(TermCraft.Pages.Page)">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <paramref name="page"/>.
+            Called when writing a <see cref="T:TermCraft.Pages.Page"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:TermCraft.Pages.Init">
+            <summary>
+            Initialize <see cref="T:TermCraft.Pages"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Help">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Help"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Inventory">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Inventory"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Menu">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Menu"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Settings">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Settings"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Market">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Market"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Patreon">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Patreon"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Player">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Player"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.Splash">
+            <summary>
+            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
+            Writes <see cref="M:TermCraft.Pages.Splash"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Pages.RecallLastPage">
+            <summary>
+            Writes <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Buffer.buffer"/>
+            </summary>
+        </member>
+        <member name="T:TermCraft.Update">
+            <summary>
+            <see cref="M:TermCraft.Update.Tick"/> is running without regards to time passed.
+            </summary>
+        </member>
+        <member name="F:TermCraft.Update.updateThread">
+            <summary>
+            The main <see cref="T:System.Threading.Thread"/>. It calls <see cref="M:TermCraft.Update.Tick"/>
+            </summary>
+        </member>
+        <member name="F:TermCraft.Update.isRunning">
+            <summary>
+            Is set to <see langword="true"/> when started.
+            <see cref="F:TermCraft.Update.updateThread"/> stops when set to <see langword="false"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Update.Init">
+            <summary>
+            <list type="number">
+            <item><description>Creates <see cref="T:System.Threading.Thread"/> <see cref="F:TermCraft.Update.updateThread"/> and affiliates it with method <see cref="M:TermCraft.Update.Tick"/></description></item>
+            <item><description>Sets <see cref="F:TermCraft.Update.isRunning"/> to <see langword="true"/></description></item>
+            <item><description>Starts executing <see cref="M:TermCraft.Update.Tick"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see langword="false"/></description></item>
+            </list>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Update.Tick">
+            <summary>
+            <see cref="M:TermCraft.Update.Tick"/> runs in <see cref="F:TermCraft.Update.updateThread"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see langword="false"/>
+            </summary>
+        </member>
         <member name="T:TermCraft.AI">
             <summary>
             Data class for <see cref="T:TermCraft.AI"/>
@@ -187,125 +554,6 @@
             Removes the given <paramref name="accountNumber"/> if it exist
             </summary>
             <param name="accountNumber">The account number to remove</param>
-        </member>
-        <member name="T:TermCraft.Buffer">
-            <summary>
-            Handles the output buffer and output to console
-            </summary>
-        </member>
-        <member name="F:TermCraft.Buffer.buffer">
-            <summary>
-            Drawable <see cref="T:System.Char"/>[][] buffer
-            </summary>
-        </member>
-        <member name="F:TermCraft.Buffer.borderCharSet">
-            <summary>
-            Current character set
-            </summary>
-        </member>
-        <member name="T:TermCraft.Buffer.CharSet">
-            <summary>
-            Character sets
-            </summary>
-        </member>
-        <member name="F:TermCraft.Buffer.CharSet.Default">
-            <summary>
-            Default double-line borders
-            </summary>
-        </member>
-        <member name="F:TermCraft.Buffer.CharSet.Thin">
-            <summary>
-            Thinner single-line version borders
-            </summary>
-        </member>
-        <member name="F:TermCraft.Buffer.CharSet.Full">
-            <summary>
-            Full opacity borders
-            </summary>
-        </member>
-        <member name="M:TermCraft.Buffer.Init">
-            <summary>
-            Initialize <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Buffer.SetBorderCharSet(TermCraft.Buffer.CharSet)">
-            <summary>
-            Sets the <see cref="T:TermCraft.Buffer.CharSet"/> used for the borders
-            </summary>
-            <param name="charSet">Selected <see cref="T:TermCraft.Buffer.CharSet"/></param>
-        </member>
-        <member name="M:TermCraft.Buffer.Draw">
-            <summary>
-            Draws <see cref="F:TermCraft.Buffer.buffer"/> to <see cref="T:System.Console"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Buffer.Clear">
-            <summary>
-            Replaces <see cref="F:TermCraft.Buffer.buffer"/> content with ' '
-            Calls <see cref="M:TermCraft.Buffer.BuildDefaultUI"/> after completion
-            </summary>
-        </member>
-        <member name="M:TermCraft.Buffer.BuildDefaultUI">
-            <summary>
-            Builds the default UI with the set <see cref="T:TermCraft.Buffer.CharSet"/>.
-            Called after <see cref="M:TermCraft.Buffer.Clear"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Buffer.WriteHorizontalLine(System.Char,System.Int32)">
-            <summary>
-            Writes a full length horizontal line to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-            <param name="c"><see cref="T:System.Char"/> to use</param>
-            <param name="y">Vertical placement</param>
-        </member>
-        <member name="M:TermCraft.Buffer.WriteHorizontalLine(System.Char,System.Int32,System.Int32,System.UInt32)">
-            <summary>
-            Writes a specified <paramref name="length"/> horizontal line to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startX"/>
-            </summary>
-            <param name="c"><see cref="T:System.Char"/> to use</param>
-            <param name="y">Vertical placement</param>
-            <param name="startX">Horizontal start of the line</param>
-            <param name="length">Length of the line</param>
-        </member>
-        <member name="M:TermCraft.Buffer.WriteVerticalLine(System.Char,System.Int32)">
-            <summary>
-            Writes a full length vertical line to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-            <param name="c"><see cref="T:System.Char"/> to use</param>
-            <param name="x">Horizontal placement</param>
-        </member>
-        <member name="M:TermCraft.Buffer.WriteVerticalLine(System.Char,System.Int32,System.Int32,System.UInt32)">
-            <summary>
-            Writes a specified <paramref name="length"/> vertical line to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startY"/>
-            </summary>
-            <param name="c"><see cref="T:System.Char"/> to use</param>
-            <param name="x">Horizontal placement</param>
-            <param name="startY">Vertical start of the line</param>
-            <param name="length">Length of the line</param>
-        </member>
-        <member name="M:TermCraft.Buffer.WriteChar(System.Char,System.Int32,System.Int32)">
-            <summary>
-            Writes the specified <see cref="T:System.Char"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-            <param name="c">Character to add</param>
-            <param name="x">Horizontal placement</param>
-            <param name="y">Vertical placement</param>
-        </member>
-        <member name="M:TermCraft.Buffer.WriteHorizontalText(System.String,System.Int32,System.Int32)">
-            <summary>
-            Writes <paramref name="input"/> horizontally to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startX"/>
-            </summary>
-            <param name="input">Text to add</param>
-            <param name="y">Vertical placement</param>
-            <param name="startX">Horizontal placement of the first input character</param>
-        </member>
-        <member name="M:TermCraft.Buffer.WriteVerticalText(System.String,System.Int32,System.Int32)">
-            <summary>
-            Writes <paramref name="input"/> vertically to <see cref="F:TermCraft.Buffer.buffer"/> from <paramref name="startY"/>
-            </summary>
-            <param name="input">Text to add</param>
-            <param name="x">Horizontal placement</param>
-            <param name="startY">Vertical placement of the first input character</param>
         </member>
         <member name="T:TermCraft.Building">
             <summary>
@@ -610,224 +858,6 @@
             <param name="amount">How many of the <see cref="T:TermCraft.Item"/> to buy
             </param>
         </member>
-        <member name="T:TermCraft.Name">
-            <summary>
-            The <see cref="T:TermCraft.Name"/> class is used to generate psuedorandom names
-            </summary>
-        </member>
-        <member name="F:TermCraft.Name.femaleFirstNames">
-            <summary>
-            Female First Names
-            </summary>
-        </member>
-        <member name="F:TermCraft.Name.femaleMiddleNames">
-            <summary>
-            Female Middle Names
-            </summary>
-        </member>
-        <member name="F:TermCraft.Name.maleFirstNames">
-            <summary>
-            Male First Names
-            </summary>
-        </member>
-        <member name="F:TermCraft.Name.maleMiddleNames">
-            <summary>
-            Males Middle Names
-            </summary>
-        </member>
-        <member name="F:TermCraft.Name.lastNames">
-            <summary>
-            Gender-neutral Last Names
-            </summary>
-        </member>
-        <member name="T:TermCraft.Name.Gender">
-            <summary>
-            Which <see cref="T:TermCraft.Name.Gender"/> to select
-            </summary>
-        </member>
-        <member name="F:TermCraft.Name.Gender.Female">
-            <summary>
-            <see cref="T:TermCraft.Name.Gender"/>is set to Female
-            </summary>
-        </member>
-        <member name="F:TermCraft.Name.Gender.Male">
-            <summary>
-            <see cref="T:TermCraft.Name.Gender"/> is set to Male
-            </summary>
-        </member>
-        <member name="F:TermCraft.Name.middleNameChance">
-            <summary>
-            Sets the chance of getting a middle name (0 - 1)
-            </summary>
-        </member>
-        <member name="F:TermCraft.Name.doubleLastNameChance">
-            <summary>
-            Sets the chance of getting two last names (0 - 1)
-            </summary>
-        </member>
-        <member name="M:TermCraft.Name.Init">
-            <summary>
-            Initializes the various arrays containing names
-            </summary>
-        </member>
-        <member name="M:TermCraft.Name.Create(TermCraft.Name.Gender)">
-            <summary>
-            Creates a new name and returns it
-            </summary>
-            <param name="gender">Which <see cref="T:TermCraft.Name.Gender"/> to use</param>
-            <returns>The newly generated name</returns>
-        </member>
-        <member name="M:TermCraft.Name.FemaleFirstNames">
-            <summary>
-            Female First Names
-            </summary>
-        </member>
-        <member name="M:TermCraft.Name.FemaleMiddleNames">
-            <summary>
-            Female Middle Names
-            </summary>
-        </member>
-        <member name="M:TermCraft.Name.MaleFirstNames">
-            <summary>
-            Male First Names
-            </summary>
-        </member>
-        <member name="M:TermCraft.Name.MaleMiddleNames">
-            <summary>
-            Male Middle Names
-            </summary>
-        </member>
-        <member name="M:TermCraft.Name.LastNames">
-            <summary>
-            Gender Neutral Last Names
-            </summary>
-        </member>
-        <member name="T:TermCraft.Pages">
-            <summary>
-            Data class to draw the selected <see cref="T:TermCraft.Pages.Page"/> to <see cref="F:TermCraft.Buffer.buffer"/>.
-            This class does not call <see cref="M:TermCraft.Buffer.Draw"/>
-            </summary>
-        </member>
-        <member name="T:TermCraft.Pages.Page">
-            <summary>
-            Enumerable list of drawable pages
-            </summary>
-        </member>
-        <member name="F:TermCraft.Pages.Page.Splash">
-            <summary>
-            Splash screen
-            </summary>
-        </member>
-        <member name="F:TermCraft.Pages.Page.Menu">
-            <summary>
-            Menu screen
-            </summary>
-        </member>
-        <member name="F:TermCraft.Pages.Page.Help">
-            <summary>
-            Help screen
-            </summary>
-        </member>
-        <member name="F:TermCraft.Pages.Page.Inventory">
-            <summary>
-            Inventory screen
-            </summary>
-        </member>
-        <member name="F:TermCraft.Pages.Page.Settings">
-            <summary>
-            Settings screen
-            </summary>
-        </member>
-        <member name="F:TermCraft.Pages.Page.Market">
-            <summary>
-            Market screen
-            </summary>
-        </member>
-        <member name="F:TermCraft.Pages.Page.Patreon">
-            <summary>
-            Patreon screen
-            </summary>
-        </member>
-        <member name="F:TermCraft.Pages.Page.Character">
-            <summary>
-            Character screen
-            </summary>
-        </member>
-        <member name="F:TermCraft.Pages.currentPage">
-            <summary>
-            Indicates the <see cref="T:TermCraft.Pages.Page"/> that is last drawn to <see cref="T:System.Console"/>
-            </summary>
-        </member>
-        <member name="P:TermCraft.Pages.lastPage">
-            <summary>
-            Indicates the <see cref="T:TermCraft.Pages.Page"/> that was drawn prior to the <see cref="F:TermCraft.Pages.currentPage"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.SetLastPage(TermCraft.Pages.Page)">
-            <summary>
-            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <paramref name="page"/>.
-            Called when writing a <see cref="T:TermCraft.Pages.Page"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-            <param name="page"></param>
-        </member>
-        <member name="M:TermCraft.Pages.Init">
-            <summary>
-            Initialize <see cref="T:TermCraft.Pages"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.Help">
-            <summary>
-            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
-            Writes <see cref="M:TermCraft.Pages.Help"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.Inventory">
-            <summary>
-            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
-            Writes <see cref="M:TermCraft.Pages.Inventory"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.Menu">
-            <summary>
-            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
-            Writes <see cref="M:TermCraft.Pages.Menu"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.Settings">
-            <summary>
-            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
-            Writes <see cref="M:TermCraft.Pages.Settings"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.Market">
-            <summary>
-            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
-            Writes <see cref="M:TermCraft.Pages.Market"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.Patreon">
-            <summary>
-            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
-            Writes <see cref="M:TermCraft.Pages.Patreon"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.Player">
-            <summary>
-            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
-            Writes <see cref="M:TermCraft.Pages.Player"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.Splash">
-            <summary>
-            Sets <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Pages.currentPage"/>.
-            Writes <see cref="M:TermCraft.Pages.Splash"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Pages.RecallLastPage">
-            <summary>
-            Writes <see cref="P:TermCraft.Pages.lastPage"/> to <see cref="F:TermCraft.Buffer.buffer"/>
-            </summary>
-        </member>
         <member name="T:TermCraft.Player">
             <summary>
             Class of <see cref="T:TermCraft.Player"/>
@@ -854,6 +884,50 @@
             </summary>
             <param name="inventory"></param>
             <param name="level"></param>
+        </member>
+        <member name="T:TermCraft.Register">
+            <summary>
+            AI/Building Register
+            </summary>
+        </member>
+        <member name="P:TermCraft.Register.AIs">
+            <summary>
+            List of <see cref="T:TermCraft.AI"/>s in use
+            </summary>
+        </member>
+        <member name="P:TermCraft.Register.Buildings">
+            <summary>
+            List of <see cref="T:TermCraft.Building"/>s in use
+            </summary>
+        </member>
+        <member name="M:TermCraft.Register.Init">
+            <summary>
+            Initializes <see cref="P:TermCraft.Register.AIs"/> and <see cref="P:TermCraft.Register.Buildings"/>
+            </summary>
+        </member>
+        <member name="M:TermCraft.Register.AddToRegister(TermCraft.AI)">
+            <summary>
+            Adds a specified <see cref="T:TermCraft.AI"/> to the register
+            </summary>
+            <param name="ai">The <see cref="T:TermCraft.AI"/> to add</param>
+        </member>
+        <member name="M:TermCraft.Register.AddToRegister(TermCraft.Building)">
+            <summary>
+            Adds a specified <see cref="T:TermCraft.Building"/> to the register
+            </summary>
+            <param name="building">The <see cref="T:TermCraft.Building"/> to add</param>
+        </member>
+        <member name="M:TermCraft.Register.RemoveFromRegister(TermCraft.AI)">
+            <summary>
+            Removes the specified <see cref="T:TermCraft.AI"/> from the register
+            </summary>
+            <param name="ai">The <see cref="T:TermCraft.AI"/> to remove</param>
+        </member>
+        <member name="M:TermCraft.Register.RemoveFromRegister(TermCraft.Building)">
+            <summary>
+            Removes the specified <see cref="T:TermCraft.Building"/> from the register
+            </summary>
+            <param name="building">The <see cref="T:TermCraft.Building"/> to Remove</param>
         </member>
         <member name="T:TermCraft.Program">
             <summary>
@@ -935,80 +1009,6 @@
             Sets the state of <see cref="F:TermCraft.Program.inputCaptured"/>
             </summary>
             <param name="state">New state</param>
-        </member>
-        <member name="T:TermCraft.Register">
-            <summary>
-            AI/Building Register
-            </summary>
-        </member>
-        <member name="P:TermCraft.Register.AIs">
-            <summary>
-            List of <see cref="T:TermCraft.AI"/>s in use
-            </summary>
-        </member>
-        <member name="P:TermCraft.Register.Buildings">
-            <summary>
-            List of <see cref="T:TermCraft.Building"/>s in use
-            </summary>
-        </member>
-        <member name="M:TermCraft.Register.Init">
-            <summary>
-            Initializes <see cref="P:TermCraft.Register.AIs"/> and <see cref="P:TermCraft.Register.Buildings"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Register.AddToRegister(TermCraft.AI)">
-            <summary>
-            Adds a specified <see cref="T:TermCraft.AI"/> to the register
-            </summary>
-            <param name="ai">The <see cref="T:TermCraft.AI"/> to add</param>
-        </member>
-        <member name="M:TermCraft.Register.AddToRegister(TermCraft.Building)">
-            <summary>
-            Adds a specified <see cref="T:TermCraft.Building"/> to the register
-            </summary>
-            <param name="building">The <see cref="T:TermCraft.Building"/> to add</param>
-        </member>
-        <member name="M:TermCraft.Register.RemoveFromRegister(TermCraft.AI)">
-            <summary>
-            Removes the specified <see cref="T:TermCraft.AI"/> from the register
-            </summary>
-            <param name="ai">The <see cref="T:TermCraft.AI"/> to remove</param>
-        </member>
-        <member name="M:TermCraft.Register.RemoveFromRegister(TermCraft.Building)">
-            <summary>
-            Removes the specified <see cref="T:TermCraft.Building"/> from the register
-            </summary>
-            <param name="building">The <see cref="T:TermCraft.Building"/> to Remove</param>
-        </member>
-        <member name="T:TermCraft.Update">
-            <summary>
-            <see cref="M:TermCraft.Update.Tick"/> is running without regards to time passed.
-            </summary>
-        </member>
-        <member name="F:TermCraft.Update.updateThread">
-            <summary>
-            The main <see cref="T:System.Threading.Thread"/>. It calls <see cref="M:TermCraft.Update.Tick"/>
-            </summary>
-        </member>
-        <member name="F:TermCraft.Update.isRunning">
-            <summary>
-            Is set to <see langword="true"/> when started.
-            <see cref="F:TermCraft.Update.updateThread"/> stops when set to <see langword="false"/>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Update.Init">
-            <summary>
-            <list type="number">
-            <item><description>Creates <see cref="T:System.Threading.Thread"/> <see cref="F:TermCraft.Update.updateThread"/> and affiliates it with method <see cref="M:TermCraft.Update.Tick"/></description></item>
-            <item><description>Sets <see cref="F:TermCraft.Update.isRunning"/> to <see langword="true"/></description></item>
-            <item><description>Starts executing <see cref="M:TermCraft.Update.Tick"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see langword="false"/></description></item>
-            </list>
-            </summary>
-        </member>
-        <member name="M:TermCraft.Update.Tick">
-            <summary>
-            <see cref="M:TermCraft.Update.Tick"/> runs in <see cref="F:TermCraft.Update.updateThread"/> until <see cref="F:TermCraft.Update.isRunning"/> is set to <see langword="false"/>
-            </summary>
         </member>
     </members>
 </doc>
